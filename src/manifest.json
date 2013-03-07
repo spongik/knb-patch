@@ -1,24 +1,32 @@
 {
 	"manifest_version": 2,
-    "name": "Kanobu Patch",
-    "description": "by spongik and orels1",
-    "version": "0.3",
-    "permissions": [
-        "tabs",
+	"name": "Kanobu Patch",
+	"description": "by spongik and orels1",
+	"version": "0.3",
+	"permissions": [
+		"tabs",
 		"http://kanobu.ru/*"
-    ],
-    "web_accessible_resources": [
-		"bg.jpg"
+	],
+	"web_accessible_resources": [
+		"images/bg.jpg"
 	],
 	"background": {
-		"scripts": ["background.js"]
+		"scripts": ["scripts/background.js"]
 	},
-    "content_scripts": [
+	"content_scripts": [
 		{
-		  "matches": ["http://kanobu.ru/*"],
-		  "run_at": "document_start",
-		  "js": ["jquery-1.9.1.min.js", "knbPatch.js"],
-		  "css": ["knbPatch.css"]
+			"matches": ["http://kanobu.ru/*"],
+			"run_at": "document_start",
+			"js": [
+				"scripts/3rd-party/jquery-1.9.1.min.js",
+				"scripts/common.js",
+				"scripts/plugins/background.js",
+				"scripts/plugins/comments-highlight.js",
+				"scripts/plugins/comments-refresh.js",
+				"scripts/plugins/pub-video.js",
+				"scripts/plugins/tab-all.js"
+			],
+			"css": ["styles/common.css"]
 		}
-    ]
+	]
 }
