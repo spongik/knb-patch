@@ -16,7 +16,12 @@ $(function() {
 	}
 
 	var filterPosts = function() {
+		if (threshold < 0) {
+			return;
+		}
+		
 		reloadTimeout && clearTimeout(reloadTimeout);
+		
 		$columns = $('.postListBlock > .postList');
 		$posts = $('.userMessageBlock[filtered!=1][data-object-id]', $columns);
 		if  ($posts.length > 0) {
