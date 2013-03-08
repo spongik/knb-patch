@@ -1,12 +1,11 @@
 $(function() {
 
-	// comments highlight
 	var bindComments = function() {
 		$comments = $('#comments .comment[binded!=1]');
 		if  ($comments.length > 0) {
 			$comments
 				.attr('binded', '1')
-					.hover(function (ev) {
+				.hover(function (ev) {
 					$comment = $(this);
 					if ($comment.has('.whom')) {
 						whom = $('.whom', $comment).attr('href');

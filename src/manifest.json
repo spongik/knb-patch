@@ -24,7 +24,8 @@
 				"scripts/plugins/comments-highlight.js",
 				"scripts/plugins/comments-refresh.js",
 				"scripts/plugins/pub-video.js",
-				"scripts/plugins/tab-all.js"
+				"scripts/plugins/tab-all.js",
+				"scripts/plugins/pub-filter.js"
 			],
 			"css": ["styles/common.css"]
 		}
