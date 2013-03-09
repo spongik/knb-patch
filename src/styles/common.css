@@ -98,6 +98,13 @@ a.like.counter
 	-webkit-transition: All 1s;
 }
 
+#refresh-comments-float
+{
+	font: bold 15px/15px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
+	color: #3B6D96;
+	border-bottom: 1px dotted #3B6D96;
+}
+
 #refresh-comments-wrap
 {
 	padding: 10px 0;

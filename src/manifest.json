@@ -19,6 +19,8 @@
 			"run_at": "document_start",
 			"js": [
 				"scripts/3rd-party/jquery-1.9.1.min.js",
+				"scripts/3rd-party/jquery.scrollTo.min.js",
+				"scripts/3rd-party/jquery.sticky.js",
 				"scripts/common.js",
 				"scripts/plugins/background.js",
 				"scripts/plugins/comments-highlight.js",
