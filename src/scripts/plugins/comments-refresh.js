@@ -25,7 +25,6 @@ $(function() {
 		var onRefresh = function() {
 			$comments = $('#comments .comment[old!=1]');
 			if  ($comments.length > 0) {
-				$('#comments').unbind('DOMSubtreeModified', onRefresh);
 				updateRefreshBtnLabel();
 				
 				$old = $('#comments .comment[old=1]');
@@ -43,8 +42,9 @@ $(function() {
 				});
 				lastId = null;
 			}
+			return false;
 		};
-		$('#comments').bind('DOMSubtreeModified', onRefresh);
+		$('#comments').watch(onRefresh);
 		$('.wrapBtnTxt', $showMore).trigger('click');
 		
 		ev.preventDefault();

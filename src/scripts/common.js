@@ -9,7 +9,7 @@ $.fn.extend({
 });
 
 $.fn.extend({
-    watch: function (cb, data) {	
+    watch: function (cb, data) {
         $this = $(this);
 
 		if ($this.length == 0) {
@@ -19,14 +19,23 @@ $.fn.extend({
 		$this.each(function(i, item) {
 			$item = $(item);
 			var onDOMSubtreeModified = function(ev) {
-				data = $.knb.watchData[ev.data];		
-				clearTimeout(data.timer);
-				data.context.unbind('DOMSubtreeModified', onDOMSubtreeModified);				
-				data.timer = setTimeout(function() {
+				data = $.knb.watchData[ev.data];
+				data.context.unbind('DOMSubtreeModified', onDOMSubtreeModified);
+				
+				cbWrapped = function() {
 					if (cb.call(data.context[0], ev, data.data)) {
 						data.context.bind('DOMSubtreeModified', data.id, onDOMSubtreeModified);
 					}
-				}, 100);
+					data.timer = null;
+				};
+				
+				if (data.timer == null) {
+					cbWrapped();
+					cbWrapped = function() {};
+				}
+				
+				clearTimeout(data.timer);
+				data.timer = setTimeout(cbWrapped, 100);
 			}
 			
 			var id = $.fn.getNextUniqueId();
@@ -39,12 +48,6 @@ $.fn.extend({
 			$item.bind('DOMSubtreeModified', id, onDOMSubtreeModified);
 		});
 		
-		return $this;	
+		return $this;
     }
-});
-
-$(function() {
-
-	// common stuff here
-
 });
