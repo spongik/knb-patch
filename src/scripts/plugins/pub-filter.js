@@ -1,5 +1,5 @@
 $(function() {
-	
+
 	var PUB_FILTER_KEY = 'pub-filter-threshold';
 	
 	$filter = $('<ul id="threshold-filter" class="filter2">\
@@ -17,6 +17,7 @@ $(function() {
 
 	var filterPosts = function() {
 		reloadTimeout && clearTimeout(reloadTimeout);
+		$('.postListBlock').unbind('DOMSubtreeModified', filterPosts);
 		
 		$columns = $('.postListBlock > .postList');
 		$posts = $('.userMessageBlock[filtered!=1][data-object-id]', $columns);
@@ -52,6 +53,8 @@ $(function() {
 			$(window).scrollTop( $(window).scrollTop() + 1 );
 			$(window).scrollTop( $(window).scrollTop() - 1 );
 		}, 10);
+		
+		$('.postListBlock').bind('DOMSubtreeModified', filterPosts);
 	};
 	$('.postListBlock').bind('DOMSubtreeModified', filterPosts);
 	

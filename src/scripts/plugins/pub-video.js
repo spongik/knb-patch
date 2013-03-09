@@ -39,6 +39,7 @@ $(function() {
 	};
 	var onPostsLoaded = function (ev) {
 		$this = $(this);
+		$this.unbind('DOMSubtreeModified', onPostsLoaded);
 		$posts = $(">li[binded!=1]", $this);
 		if  ($posts.length > 0) {
 			$posts
@@ -48,6 +49,7 @@ $(function() {
 					$('.embedVideo', $el).bind('DOMSubtreeModified', {element: $el}, onVideoPlay);
 				});
 		}
+		$this.bind('DOMSubtreeModified', onPostsLoaded);
 	};
 	$('.postListBlock .postList').bind('DOMSubtreeModified', onPostsLoaded);
 	
