@@ -1,7 +1,7 @@
 $(function() {
 
 	var onVideoPlay = function (ev, $container) {
-		$iframe = $(">iframe", $('.embedVideo', $container));
+		$iframe = $(">iframe", $('.embedVideo[binded!=1]', $container).attr('binded', '1'));
 		if ($iframe.length == 1) {		
 			$('.embedVideo', $container)
 				.width($iframe.width())
