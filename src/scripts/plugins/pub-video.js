@@ -1,24 +1,22 @@
 $(function() {
 
-	var onVideoPlay = function (ev) {
-		$this = $('.embedVideo', ev.data.element);
-		$iframe = $(">iframe", $this);
-		if ($this.length > 0 && $iframe.length > 0) {
-			$this.unbind('DOMSubtreeModified', onVideoPlay);
-			$this
+	var onVideoPlay = function (ev, $container) {
+		$iframe = $(">iframe", $('.embedVideo', $container));
+		if ($iframe.length == 1) {		
+			$('.embedVideo', $container)
 				.width($iframe.width())
 				.height($iframe.height());
 			$iframeClone = $iframe.clone().css('display', 'none');
-			background = $("img", $this).attr('src');
-			$this.html('<div class="playBtn"></div>')
+			background = $("img", $('.embedVideo', $container)).attr('src');
+			$('.embedVideo', $container).html('<div class="playBtn"></div>')
 				.css('background', 'url(' + background + ')')
 				.css('background-size', 'contain')
 				.css('cursor', 'hand');
-			id = 'video-iframe-' + ev.data.element.data('object-id');
+			id = 'video-iframe-' + $container.data('object-id');
 			$iframeClone.attr('id', id);
 			$('#back').append($iframeClone);
 			
-			$('.embedVideo', ev.data.element).bind('click', {id: id} , function (ev2) {
+			$('.embedVideo', $container).bind('click', {id: id} , function (ev2) {
 				fId = ev2.data.id;
 				w = $(window).width();
 				h = $(window).height();			
@@ -35,23 +33,24 @@ $(function() {
 				ev2.preventDefault();
 				ev2.stopPropagation();
 			}).trigger('click');
+			return false;
 		}
+		return true;
 	};
 	var onPostsLoaded = function (ev) {
 		$this = $(this);
-		$this.unbind('DOMSubtreeModified', onPostsLoaded);
 		$posts = $("> .postList > li[binded!=1]", $this);
 		if  ($posts.length > 0) {
 			$posts
 				.attr('binded', '1')
 				.each(function (i, el) {
 					$el = $(el);
-					$('.embedVideo', $el).bind('DOMSubtreeModified', {element: $el}, onVideoPlay);
+					$('.embedVideo', $el).watch(onVideoPlay, $el, true);
 				});
 		}
-		$this.bind('DOMSubtreeModified', onPostsLoaded);
+		return true;
 	};
-	$('.postListBlock').bind('DOMSubtreeModified', onPostsLoaded);
+	$('.postListBlock').watch(onPostsLoaded);
 	
 	$back = $('<div></div>')
 		.attr('id', 'back')

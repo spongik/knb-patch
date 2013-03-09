@@ -33,38 +33,33 @@ $(function() {
 	}
 	
 	// comments
-	commentsUpdated = function() {
+	$('#comments').watch(function() {
 		$this = $(this);
-		$this.unbind('DOMSubtreeModified', commentsUpdated);
 		friendsHighlight($('.ava[friend!=1]', $(this)).attr('friend', '1').parent(), 'friendHighlight');
-		$this.bind('DOMSubtreeModified', commentsUpdated);
-	};
-	$('#comments').bind('DOMSubtreeModified', commentsUpdated);
+		return true;
+	});
 	
 	// pub posts
-	postListUpdated = function() {
+	$('.postList').watch(function() {
 		$this = $(this);
-		$this.unbind('DOMSubtreeModified', postListUpdated);
 		friendsHighlight($('> li .ava[friend!=1]', $(this)).attr('friend', '1'), 'friendHighlight');
-		$this.bind('DOMSubtreeModified', postListUpdated);
-	}
-	$('.postList').bind('DOMSubtreeModified', postListUpdated);
+		return true;
+	});
 	
 	// shouts	
 	var isShoutsPage = document.location.href.indexOf('http://kanobu.ru/shouts/') == 0;
-	shoutsListUpdated = function() {
+	$('.shoutsList').watch(function() {
 		$this = $(this);
-		$this.unbind('DOMSubtreeModified', shoutsListUpdated);
 		$shouts = $('> li > .shout[friend!=1]', $(this)).attr('friend', '1');
 		friendsHighlight($('.ava', $shouts), 'friendHighlight');	
 		isShoutsPage && $shouts.each(function (i, shout) {
-			$(shout).parent().bind('DOMSubtreeModified', function() {
+			$(shout).parent().watch(function() {
 				friendsHighlight($('.shoutAnswers .ava[friend!=1]', $(this)).attr('friend', '1'), 'friendHighlight');
+				return true;
 			});
 		});
-		$this.bind('DOMSubtreeModified', shoutsListUpdated);
-	}
-	$('.shoutsList').bind('DOMSubtreeModified', shoutsListUpdated).trigger('DOMSubtreeModified');
+		return true;
+	}).trigger('DOMSubtreeModified');
 	
 	friendsHighlight($('.people > ul > li > a'), 'friendHighlight2'); // posts likes
 	friendsHighlight($('.rightColumn .author'), 'friendHighlight'); // post author

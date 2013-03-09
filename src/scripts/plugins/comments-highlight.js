@@ -20,8 +20,9 @@ $(function() {
 						.css('background', 'transparent');
 				});
 		}
+		return true;
 	};
-	$('#comments').bind('DOMSubtreeModified', bindComments);
+	$('#comments').watch(bindComments);
 	bindComments();
 
 });
