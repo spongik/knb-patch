@@ -121,6 +121,24 @@ a.like.counter
 	
 }
 
+/* Меню */
+
+.hBtns>li.pub>a {
+	background: none !important;
+	color: #fff;
+	font: 10px/9px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
+	text-align: center;
+}
+.hBtns>li.pub>a>i {
+	background: url('http://static.kanobu.ru/i/other/menuItemIcons.png') no-repeat;
+	background-position: 100% -20px;
+	width: 37px;
+	height: 20px;
+	display: inline-block;
+	margin-top: 7px;
+	margin-left: 7px;
+}
+
 /* Фильтр */
 
 ul.filter2 li {
