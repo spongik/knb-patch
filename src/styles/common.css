@@ -93,14 +93,15 @@ a.like.counter
 	font: 14px/18px "Arial",sans-serif !important;
 }
 
-a.ava.friend img
-{
-	outline: 2px solid #00B205;
-}
 
-a.ava.friend .userName
+.friendHighlight2 img
 {
-	color: #00B205 !important;
+	border: 4px solid rgba(0,178,5,0.5);
+	margin-bottom: -8px;
+}
+.friendHighlight img
+{
+	outline: 4px solid rgba(0,178,5,0.5);
 }
 
 #comments .comment
