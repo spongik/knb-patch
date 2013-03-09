@@ -55,13 +55,13 @@ $(function() {
 	shoutsListUpdated = function() {
 		$this = $(this);
 		$this.unbind('DOMSubtreeModified', shoutsListUpdated);
-		$shouts = $('> li > .shout[friend!=1]', $(this)).attr('friend', '1');	
+		$shouts = $('> li > .shout[friend!=1]', $(this)).attr('friend', '1');
+		friendsHighlight($('.ava', $shouts), 'friendHighlight');	
 		isShoutsPage && $shouts.each(function (i, shout) {
 			$(shout).parent().bind('DOMSubtreeModified', function() {
 				friendsHighlight($('.shoutAnswers .ava[friend!=1]', $(this)).attr('friend', '1'), 'friendHighlight');
 			});
 		});
-		friendsHighlight($('> li > .shout > .ava', $shouts), 'friendHighlight');
 		$this.bind('DOMSubtreeModified', shoutsListUpdated);
 	}
 	$('.shoutsList').bind('DOMSubtreeModified', shoutsListUpdated).trigger('DOMSubtreeModified');
