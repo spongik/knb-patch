@@ -28,7 +28,8 @@
 				"scripts/plugins/pub-video.js",
 				"scripts/plugins/tab-all.js",
 				"scripts/plugins/pub-filter.js",
-				"scripts/plugins/pub-icon.js"
+				"scripts/plugins/pub-icon.js",
+				"scripts/plugins/friends-highlight.js"
 			],
 			"css": ["styles/common.css"]
 		}

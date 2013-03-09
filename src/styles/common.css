@@ -93,6 +93,16 @@ a.like.counter
 	font: 14px/18px "Arial",sans-serif !important;
 }
 
+a.ava.friend img
+{
+	outline: 2px solid #00B205;
+}
+
+a.ava.friend .userName
+{
+	color: #00B205 !important;
+}
+
 #comments .comment
 {
 	-webkit-transition: All 1s;
