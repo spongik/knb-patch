@@ -39,7 +39,8 @@ $(function() {
 	};
 	var onPostsLoaded = function (ev) {
 		$this = $(this);
-		$posts = $(">li[binded!=1]", $this);
+		$this.unbind('DOMSubtreeModified', onPostsLoaded);
+		$posts = $("> .postList > li[binded!=1]", $this);
 		if  ($posts.length > 0) {
 			$posts
 				.attr('binded', '1')
@@ -48,8 +49,9 @@ $(function() {
 					$('.embedVideo', $el).bind('DOMSubtreeModified', {element: $el}, onVideoPlay);
 				});
 		}
+		$this.bind('DOMSubtreeModified', onPostsLoaded);
 	};
-	$('.postListBlock .postList').bind('DOMSubtreeModified', onPostsLoaded);
+	$('.postListBlock').bind('DOMSubtreeModified', onPostsLoaded);
 	
 	$back = $('<div></div>')
 		.attr('id', 'back')
