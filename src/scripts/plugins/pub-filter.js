@@ -26,10 +26,8 @@ $(function() {
 					$post = $(post);
 					if ($('.like.counter', $post).data('count') < threshold) {
 						$post.hide().attr('hide', '1');
-						console.log('hide');
 					} else {
 						$post.show().attr('hide', '0');
-						console.log('show');
 					}
 				});
 			
