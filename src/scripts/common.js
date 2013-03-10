@@ -13,7 +13,7 @@ $.fn.extend({
 });
 
 $.fn.extend({
-    watch: function (cb, data) {
+    watch: function (cb, data, delayed) {
         $this = $(this);
 
 		if ($this.length == 0) {
@@ -33,7 +33,7 @@ $.fn.extend({
 					data.timer = null;
 				};
 				
-				if (data.timer == null) {
+				if (data.timer == null && !delayed) {
 					cbWrapped();
 					cbWrapped = function() {};
 				}

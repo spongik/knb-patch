@@ -50,25 +50,24 @@ $.knb.plugins.commentsRefresh = function () {
 		if (refreshUrl == null) {
 			refreshUrl = $showMore.data('url').replace(/max_id=\d+&/g, "max_id=9999999999&");
 		}
+			
+		$.scrollTo( '#refresh-comments', 200 );
+		
 		$showMore.attr('data-url', refreshUrl);
-		$('#comments .comment').attr('old', '1');
+		$('#comments').height($('#comments').height());
+		$('#comments .comment').attr('old', '1').hide();
 		
 		var lastId = null;
 		var onRefresh = function() {
-			console.log('onRefresh');
 			$comments = $('#comments .comment[old!=1]');
-			if  ($comments.length > 0) {
-				console.log('$comments.length = ' + $comments.length);
-				$.knb.fn.updateRefreshBtnLabel();
+			$.knb.fn.updateRefreshBtnLabel();
+			
+			$old = $('#comments .comment[old=1]');
+			lastId = $old.last().data('id');
+			$old.remove();
+			
+			$.scrollTo( '#refresh-comments', 50 );
 				
-				$old = $('#comments .comment[old=1]');
-				console.log('$old.length = ' + $old.length);
-				lastId =  $old.last().data('id');
-				$old.remove();
-				console.log('lastId = ' + lastId);
-				
-				document.location.replace('#refresh-comments');
-			}
 			if (lastId != null) {
 				$('#comments .comment').each(function (i, el) {
 					$el = $(el);
@@ -81,7 +80,7 @@ $.knb.plugins.commentsRefresh = function () {
 			Tinycon.setBubble(0);
 			return false;
 		};
-		$('#comments').watch(onRefresh);
+		$('#comments').watch(onRefresh, {}, true);
 		$('.wrapBtnTxt', $showMore).trigger('click');
 		
 		ev.preventDefault();
