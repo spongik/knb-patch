@@ -32,5 +32,13 @@ $.knb.plugins.commentsNotify = function () {
 		}, 1000);
 
 		$.knb.fn.tryCreateShowMore();
-
+		
+		Tinycon.setOptions({
+			width: 9,
+			height: 12,
+			font: '11px arial',
+			colour: 'white',
+			background: 'red',
+			fallback: true
+		});
 };
