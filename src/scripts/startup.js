@@ -83,7 +83,7 @@ $.knb.initSettings = function (settings) {
 			.append($('<div></div>').append(createCheckbox('friendsHighlight', 'Подсветка аватаров друзей', settings.plugins.friendsHighlight)))
 			.append($('<div></div>').append(createCheckbox('commentsHighlight', 'Подсветка комментариев', settings.plugins.commentsHighlight)))
 			.append($('<div></div>').append(createCheckbox('commentsRefresh', 'Кнопка "Обновить комментарии"', settings.plugins.commentsRefresh)))
-			.append($('<div></div>').append(createCheckbox('pubVideo', 'Открытие видео в Пабе в новом окне', settings.plugins.pubVideo)))
+			.append($('<div></div>').append(createCheckbox('pubVideo', 'Открвать видео в Пабе в окне', settings.plugins.pubVideo)))
 			.append($('<div></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков', settings.plugins.pubFilter)))
 		)
 		.append($submit)
