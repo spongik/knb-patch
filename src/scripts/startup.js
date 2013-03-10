@@ -2,6 +2,7 @@ $(function() {
 
 	$.knb.storageKeys.settings = 'settings';
 	settings = $.parseJSON(localStorage.getItem($.knb.storageKeys.settings));
+	firstTime = false;
 	if (!settings) {
 		settings = {
 			version: {
@@ -20,9 +21,10 @@ $(function() {
 				likeButton: true,
 			}
 		};
+		firstTime = true;
 	}
 
-	$.knb.initSettings(settings);
+	$.knb.initSettings(settings, firstTime);
 	
 	for (var plugin in settings.plugins) {
 		$.knb.plugins[plugin] && settings.plugins[plugin] && $.knb.plugins[plugin]();
@@ -30,7 +32,7 @@ $(function() {
 
 });
 
-$.knb.initSettings = function (settings) {
+$.knb.initSettings = function (settings, firstTime) {
 
 	var createCheckbox = function(name, label, checked) {
 		$cbx = $('<input type="checkbox" />')
@@ -78,11 +80,11 @@ $.knb.initSettings = function (settings) {
 		.append($('<div class="controls"></div>')
 			.append($('<div></div>').append(createCheckbox('background', 'Изменять фон', settings.plugins.background)))
 			.append($('<div></div>').append(createCheckbox('headerIcons', 'Кнопки в верхнем меню', settings.plugins.headerIcons)))
-			.append($('<div></div>').append(createCheckbox('likeButton', 'Изменить стиль кнопки Лайк', settings.plugins.likeButton)))
-			.append($('<div></div>').append(createCheckbox('tabAll', 'Вкладка "Все" на главной', settings.plugins.tabAll)))
-			.append($('<div></div>').append(createCheckbox('friendsHighlight', 'Подсветка аватаров друзей', settings.plugins.friendsHighlight)))
+			.append($('<div></div>').append(createCheckbox('likeButton', 'Изменить стиль кнопки &laquo;Лайк&raquo;', settings.plugins.likeButton)))
+			.append($('<div></div>').append(createCheckbox('tabAll', 'Вкладка &laquo;Все&raquo; на главной', settings.plugins.tabAll)))
+			.append($('<div></div>').append(createCheckbox('friendsHighlight', 'Подсветка аватаров друзей <small>(необходимо перейти на страницу вашего профиля)</small>', settings.plugins.friendsHighlight)))
 			.append($('<div></div>').append(createCheckbox('commentsHighlight', 'Подсветка комментариев', settings.plugins.commentsHighlight)))
-			.append($('<div></div>').append(createCheckbox('commentsRefresh', 'Кнопка "Обновить комментарии"', settings.plugins.commentsRefresh)))
+			.append($('<div></div>').append(createCheckbox('commentsRefresh', 'Кнопка &laquo;Обновить комментарии&raquo;', settings.plugins.commentsRefresh)))
 			.append($('<div></div>').append(createCheckbox('pubVideo', 'Открвать видео в Пабе в окне', settings.plugins.pubVideo)))
 			.append($('<div></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков', settings.plugins.pubFilter)))
 		)
@@ -102,5 +104,14 @@ $.knb.initSettings = function (settings) {
 
 	$('body').append($settingsBack.append($settings));
 	$('.profileInfo .nameMail').append($settingsBtn);
+
+	if (firstTime) {
+		$('<p>Благодарим вас за установку плагина!<br>\
+			<small>Вы всегда можете поменять настройки позже &mdash; просто нажмите на ссылку в \
+			выпадающем окне, которое появляется при наведении указателем на ваш профиль в верхнем меню.</small>\
+		   </p><br>')
+			.insertBefore($('.controls', $settings));
+		$settingsBtn.trigger('click');
+	}
 
 };
