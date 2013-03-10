@@ -46,6 +46,12 @@ $.knb.plugins.commentsRefresh = function () {
 	var $floatRefresh = $('<a href="#" id="refresh-comments-float">asd</a>');
 	var refreshUrl = null;
 	$refresh.click(function(ev) {
+		ev.preventDefault();
+		
+		if (!$.knb.fn.isInjected()) {
+			return false;
+		}
+	
 		$showMore = $('#comments > .showMore');
 		if (refreshUrl == null) {
 			refreshUrl = $showMore.data('url').replace(/max_id=\d+&/g, "max_id=9999999999&");
@@ -84,7 +90,6 @@ $.knb.plugins.commentsRefresh = function () {
 		$('#comments').watch(onRefresh, {}, true);
 		$('.wrapBtnTxt', $showMore).trigger('click');
 		
-		ev.preventDefault();
 		return false;
 	});
 	

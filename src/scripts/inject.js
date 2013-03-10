@@ -19,4 +19,5 @@ exec(function () {
 			return data;
 		},
     });
+	$('body').append('<div id="injected" style="display: none;"></div>');
 });

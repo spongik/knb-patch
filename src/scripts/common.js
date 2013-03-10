@@ -6,6 +6,10 @@ $.knb.plugins = {};
 $.knb.watchData = {};
 $.knb.uniqueId = 1;
 
+$.knb.fn.isInjected = function () {
+	return $('#injected').length > 0;
+};
+
 $.fn.extend({
     getNextUniqueId: function () {
         return $.knb.uniqueId++;
