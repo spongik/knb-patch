@@ -76,8 +76,8 @@ $(function() {
 
 	var tryCreateShowMore = function() {
 		$('body').unbind('DOMSubtreeModified', tryCreateShowMore);
-		if ($('#comments').length > 0 && $('#comments > .showMore').length == 0) {
-			data = $('.mainColumn > script:last').html();
+		if ($('#comments, #player_comments').length > 0 && $('#comments > .showMore, #player_comments > .showMore').length == 0) {
+			data = $('.mainColumn script:last').html();
 			objectId = /object_id: (\d+)/.exec(data)[1];
             contentTypeId = /content_type: (\d+)/.exec(data)[1];
 			
