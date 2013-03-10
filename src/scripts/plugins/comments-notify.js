@@ -1,7 +1,7 @@
 $.knb.plugins.commentsNotify = function () {
 
 		var timerCommentsNotify = null;
-		var active = false;
+		var active = true;
 		$(document).bind("mousemove", function() {
 			active = true;
 		});
