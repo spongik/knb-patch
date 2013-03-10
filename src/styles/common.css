@@ -236,6 +236,15 @@
 	margin-left: 0px;
 }
 
+.hBtns>li.pub.long>a {
+	width: 55px;
+}
+
+.hBtns>li.pub.long>a>i {
+	width: 55px;
+	margin-left: -5px;
+}
+
 .headerIcons .header form {
 	margin-right: 60px !important;
 }
