@@ -19,10 +19,8 @@ $.knb.plugins.commentsNotify = function () {
 							});
 							
 							countNew = $comments.length;
-							if (countNew > 0) {
-								$.knb.fn.updateRefreshBtnLabel(countNew);
-								Tinycon.setBubble(countNew);
-							}
+							$.knb.fn.updateRefreshBtnLabel(countNew);
+							Tinycon.setBubble(countNew);
 							
 							active = true;
 						}
