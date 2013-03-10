@@ -18,8 +18,11 @@ $.knb.plugins.commentsNotify = function () {
 								return $(this).data('id') > lastId;
 							});
 							
-							$.knb.fn.updateRefreshBtnLabel($comments.length);
-							Tinycon.setBubble($comments.length);
+							countNew = $comments.length;
+							if (countNew > 0) {
+								$.knb.fn.updateRefreshBtnLabel(countNew);
+								Tinycon.setBubble(countNew);
+							}
 							
 							active = true;
 						}
