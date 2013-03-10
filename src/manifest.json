@@ -1,18 +1,28 @@
 {
 	"manifest_version": 2,
-	"name": "Kanobu Patch",
-	"description": "by spongik and orels1",
-	"version": "0.3",
+	"name": "Kanobu Flow",
+	"description": "Расширение для сайта Kanobu.ru, призванное сделать работу с ним более удобной.",
+	"icons": {
+		"48": "images/icons/icon48.png",
+		"128": "images/icons/icon128.png"
+	},
+	"version": "4.0.4.0",
 	"permissions": [
-		"tabs",
-		"http://kanobu.ru/*"
+		"http://kanobu.ru/*",
+		"http://m.kanobu.ru/*",
+		"notifications", 
+		"tabs", 
+		"storage", 
+		"alarms",
+		"background"
 	],
 	"web_accessible_resources": [
 		"images/bg.jpg",
 		"images/epic.png"
 	],
 	"background": {
-		"scripts": ["scripts/background.js"]
+		"scripts": ["scripts/background.js"],
+		"persistent": false
 	},
 	"content_scripts": [
 		{
