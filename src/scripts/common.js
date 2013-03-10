@@ -1,5 +1,7 @@
 $.knb = {};
 $.knb.storageKeys = {};
+$.knb.fn = {};
+$.knb.vars = {};
 $.knb.plugins = {};
 $.knb.watchData = {};
 $.knb.uniqueId = 1;

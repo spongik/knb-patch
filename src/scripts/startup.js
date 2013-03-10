@@ -16,6 +16,7 @@ $(function() {
 				friendsHighlight: true,
 				commentsHighlight: true,
 				commentsRefresh: true,
+				commentsNotify: true,
 				pubVideo: true,
 				pubFilter: true,
 				likeButton: true,
@@ -85,6 +86,7 @@ $.knb.initSettings = function (settings, firstTime) {
 			.append($('<div></div>').append(createCheckbox('friendsHighlight', 'Подсветка аватаров друзей <small>(необходимо перейти на страницу вашего профиля)</small>', settings.plugins.friendsHighlight)))
 			.append($('<div></div>').append(createCheckbox('commentsHighlight', 'Подсветка комментариев', settings.plugins.commentsHighlight)))
 			.append($('<div></div>').append(createCheckbox('commentsRefresh', 'Кнопка &laquo;Обновить комментарии&raquo;', settings.plugins.commentsRefresh)))
+			.append($('<div></div>').append(createCheckbox('commentsNotify', 'Показывать количество новых комментраиев в иконке вкладки', settings.plugins.commentsNotify)))
 			.append($('<div></div>').append(createCheckbox('pubVideo', 'Открвать видео в Пабе в окне', settings.plugins.pubVideo)))
 			.append($('<div></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков', settings.plugins.pubFilter)))
 		)

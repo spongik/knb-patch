@@ -1,14 +1,46 @@
-$.knb.plugins.commentsRefresh = function () {
+$.knb.fn.updateRefreshBtnLabel = function (newCommentsCount) {
+	var refreshLabel = 'Обновить комментарии';
+	if (newCommentsCount) {
+		refreshLabel += ' (' + newCommentsCount + ')';
+	}
+	
+	$('#refresh-comments').html(refreshLabel);
+	$('#refresh-comments-float').html(refreshLabel);
+};
 
-	var updateRefreshBtnLabel = function(newCommentsCount) {
-		var refreshLabel = 'Обновить комментарии';
-		if (newCommentsCount) {
-			refreshLabel += ' (' + newCommentsCount + ')';
-		}
-		
-		$('#refresh-comments').html(refreshLabel);
-		$('#refresh-comments-float').html(refreshLabel);
-	};
+$.knb.fn.getRefreshCommentsUrl = function () {
+	data = $('.mainColumn script:last').html();
+	objectId = /object_id: (\d+)/.exec(data)[1];
+	contentTypeId = /content_type: (\d+)/.exec(data)[1];
+	
+	url = '/comments/list/' + contentTypeId + '/' + objectId + '/?max_id=9999999999&paginate_by=20';
+	return url;
+};
+
+$.knb.fn.getLastCommentId = function () {
+	id = $('#comments .comment[old!=1]').last().data('id');
+	return id;
+};
+
+$.knb.fn.tryCreateShowMore = function (cb) {
+	if (!$.knb.vars.tryCreateShowMore) {
+		$.knb.vars.tryCreateShowMore = true;
+		var tryCreateShowMore = function(ev) {
+			$('body').unbind('DOMSubtreeModified', tryCreateShowMore);
+			if ($('#comments, #player_comments').length > 0 && $('#comments > .showMore, #player_comments > .showMore').length == 0) {			
+				$showMore = $('<a class="showMore"><i></i><div class="wrapBtnTxt"></div><em></em></a>');
+				$showMore.css('display', 'none');
+				$showMore.data('url', $.knb.fn.getRefreshCommentsUrl());
+				
+				$('#comments').append($showMore);
+				ev.data.cb && ev.data.cb();
+			}
+		};
+		$('body').bind('DOMSubtreeModified', { cb : cb }, tryCreateShowMore);
+	}
+};
+
+$.knb.plugins.commentsRefresh = function () {
 
 	var $refresh = $('<a href="#" id="refresh-comments" class="wrapBtnTxt">asd</a>');
 	var $floatRefresh = $('<a href="#" id="refresh-comments-float">asd</a>');
@@ -25,7 +57,7 @@ $.knb.plugins.commentsRefresh = function () {
 		var onRefresh = function() {
 			$comments = $('#comments .comment[old!=1]');
 			if  ($comments.length > 0) {
-				updateRefreshBtnLabel();
+				$.knb.fn.updateRefreshBtnLabel();
 				
 				$old = $('#comments .comment[old=1]');
 				lastId =  $old.last().data('id');
@@ -67,28 +99,13 @@ $.knb.plugins.commentsRefresh = function () {
 		$('.rightColumn').append($floatRefresh);
 		$('#refresh-comments-float').sticky({topSpacing: 90});
 		
-		updateRefreshBtnLabel();
+		$.knb.fn.updateRefreshBtnLabel();
 	};
 	
 	if ($('#comments > .showMore').length > 0) {
 		appendRefreshBtn();
 	}
 
-	var tryCreateShowMore = function() {
-		$('body').unbind('DOMSubtreeModified', tryCreateShowMore);
-		if ($('#comments, #player_comments').length > 0 && $('#comments > .showMore, #player_comments > .showMore').length == 0) {
-			data = $('.mainColumn script:last').html();
-			objectId = /object_id: (\d+)/.exec(data)[1];
-            contentTypeId = /content_type: (\d+)/.exec(data)[1];
-			
-			$showMore = $('<a class="showMore"><i></i><div class="wrapBtnTxt"></div><em></em></a>');
-			$showMore.css('display', 'none');
-			$showMore.data('url', '/comments/list/' + contentTypeId + '/' + objectId + '/?max_id=000&paginate_by=20');
-			
-			$('#comments').append($showMore);
-			appendRefreshBtn();
-		}
-	};
-	$('body').bind('DOMSubtreeModified', tryCreateShowMore);
+	$.knb.fn.tryCreateShowMore(appendRefreshBtn);
 
 };
