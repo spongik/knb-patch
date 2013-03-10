@@ -265,6 +265,11 @@
 	margin-right: 20px;
 }
 
+.headerIcons .header > .hBtns .kf_pubIcon, 
+.headerIcons .header > .hBtns .kf_customMenu {
+	display: none;
+}
+
 /* Фильтр */
 
 ul.filter2 li {
