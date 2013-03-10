@@ -62,7 +62,6 @@ $.knb.plugins.commentsRefresh = function () {
 				$old = $('#comments .comment[old=1]');
 				lastId =  $old.last().data('id');
 				$old.remove();
-				Tinycon.setBubble(0);
 				
 				document.location.replace('#refresh-comments');
 			}
@@ -75,6 +74,7 @@ $.knb.plugins.commentsRefresh = function () {
 				});
 				lastId = null;
 			}
+			Tinycon.setBubble(0);
 			return false;
 		};
 		$('#comments').watch(onRefresh);
