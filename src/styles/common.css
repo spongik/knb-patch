@@ -242,7 +242,7 @@
 
 .hBtns>li.pub.long>a>i {
 	width: 55px;
-	margin-left: -5px;
+	background-position: 8px -20px;
 }
 
 .headerIcons .header form {
