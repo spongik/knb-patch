@@ -1,4 +1,4 @@
-$(function() {
+$.knb.plugins.commentsRefresh = function () {
 
 	var updateRefreshBtnLabel = function(newCommentsCount) {
 		var refreshLabel = 'Обновить комментарии';
@@ -91,4 +91,4 @@ $(function() {
 	};
 	$('body').bind('DOMSubtreeModified', tryCreateShowMore);
 
-});
+};

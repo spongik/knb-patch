@@ -1,6 +1,6 @@
-$(function() {
+$.knb.plugins.pubFilter = function () {
 
-	var PUB_FILTER_KEY = 'pub-filter-threshold';
+	$.knb.storageKeys.pubFilter = 'pub-filter-threshold';
 	
 	$filter = $('<ul id="threshold-filter" class="filter2">\
 			<li><a data-threshold="-1" href="#">Все</a></li>\
@@ -10,7 +10,7 @@ $(function() {
 		</ul>');
 	
 	var reloadTimeout = null;
-	var threshold = localStorage.getItem(PUB_FILTER_KEY);
+	var threshold = localStorage.getItem($.knb.storageKeys.pubFilter);
 	if (!threshold) {
 		threshold = -1;
 	}
@@ -64,7 +64,7 @@ $(function() {
 		$('.postListBlock > .postList > .userMessageBlock').removeAttr('filtered').removeAttr('moved');
 		filterPosts();
 		
-		localStorage.setItem(PUB_FILTER_KEY, threshold);
+		localStorage.setItem($.knb.storageKeys.pubFilter, threshold);
 		
 		ev.preventDefault();
 		return false;
@@ -80,4 +80,4 @@ $(function() {
 		$filter.css('margin-right', '20px').insertAfter('.headFilter .filter');
 	}
 
-});
+};

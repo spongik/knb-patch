@@ -1,4 +1,4 @@
-$(function() {
+$.knb.plugins.tabAll = function () {
 
 	$('.tabs').find('ul')
 		.append('<li><a href="#" class="allShowLink" data-grid="4"><i></i><span>Все</span><b></b></a></li>');
@@ -20,4 +20,4 @@ $(function() {
 		}
 	});
 
-});
+};

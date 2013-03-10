@@ -1,4 +1,4 @@
-$(function() {
+$.knb.plugins.pubVideo = function () {
 
 	var onVideoPlay = function (ev, $container) {
 		$iframe = $(">iframe", $('.embedVideo[binded!=1]', $container).attr('binded', '1'));
@@ -14,7 +14,7 @@ $(function() {
 				.css('cursor', 'hand');
 			id = 'video-iframe-' + $container.data('object-id');
 			$iframeClone.attr('id', id);
-			$('#back').append($iframeClone);
+			$('#video-back').append($iframeClone);
 			
 			$('.embedVideo', $container).bind('click', {id: id} , function (ev2) {
 				fId = ev2.data.id;
@@ -22,7 +22,7 @@ $(function() {
 				h = $(window).height();			
 				fw = 800;
 				fh = 600;
-				$('#back').show();
+				$('#video-back').show();
 				$('#' + fId)
 					.css('position', 'fixed')
 					.width(fw)
@@ -53,7 +53,7 @@ $(function() {
 	$('.postListBlock').watch(onPostsLoaded);
 	
 	$back = $('<div></div>')
-		.attr('id', 'back')
+		.attr('id', 'video-back')
 		.css('display', 'none')
 		.css('position', 'fixed')
 		.css('width', '100%')
@@ -70,4 +70,4 @@ $(function() {
 		});
 	$('body').append($back);
 
-});
+};

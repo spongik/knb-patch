@@ -1,6 +1,6 @@
-$(function() {
+$.knb.plugins.friendsHighlight = function () {
 
-	var FRIENDS_HIGHLIGHT_KEY = 'friends-list';
+	$.knb.storageKeys.friendsHighlight = 'friends-list';
 	
 	var friends = [];
 	var myProfile = $('.profile > a:first').attr('href');
@@ -14,10 +14,10 @@ $(function() {
 				name: userName
 			});
 		});
-		localStorage.setItem(FRIENDS_HIGHLIGHT_KEY, JSON.stringify(friends));
+		localStorage.setItem($.knb.storageKeys.friendsHighlight, JSON.stringify(friends));
 	}
 	
-	friends = $.parseJSON(localStorage.getItem(FRIENDS_HIGHLIGHT_KEY));
+	friends = $.parseJSON(localStorage.getItem($.knb.storageKeys.friendsHighlight));
 	
 	friendsHighlight = function($users, cssClass) {
 		$users.each(function(i, user) {
@@ -65,4 +65,4 @@ $(function() {
 	friendsHighlight($('.rightColumn .author'), 'friendHighlight'); // post author
 	friendsHighlight($('.userMessageBlock .ava'), 'friendHighlight'); // pub post author
 
-});
+};

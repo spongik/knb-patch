@@ -3,12 +3,19 @@
 	color: inherit !important;
 }
 
-.screenGlide
+.likeButton a.like.counter
+{
+	color: #0C8FC8 !important;
+	font-weight: bold !important;
+	font-size: 15px !important;
+}
+
+.backgroundChanged .screenGlide
 {
 	min-height: 40px !important;
 }
 
-.screenGlideContent
+.backgroundChanged .screenGlideContent
 {
 	background: #efefef;
 	background-attachment: fixed !important;
@@ -17,12 +24,12 @@
 	position: fixed !important;
 }
 
-.bgShadow
+.backgroundChanged .bgShadow
 {
 	display:none !important;
 }
 
-.container .wrapContent
+.backgroundChanged .container .wrapContent
 {
 	box-shadow: 0px 0px 30px rgba(0,0,0,0.5);
 	background: #fff !important;
@@ -30,27 +37,20 @@
 	min-height: 1000px;
 }
 
-.container
+.backgroundChanged .container
 {
 	margin: 0 auto -175px !important;
 }
 
-.footer
+.backgroundChanged .footer
 {
 	padding-left: 40px;
 	padding-right: 40px;
 	background-position: 40px 20px !important;
 }
 
-a.like.counter
-{
-	color: #0C8FC8 !important; /* сделал чуть темнее :) */
-	font-weight: bold !important;
-	font-size: 15px !important;
-}
-
-.profileGames,
-.profileFriends
+.backgroundChanged .profileGames,
+.backgroundChanged .profileFriends
 {
 	display: block;
 	padding-left: 40px !important;
@@ -60,23 +60,24 @@ a.like.counter
 	padding-right: 40px !important;
 }
 
-.arrow.next
+.backgroundChanged .arrow.next
 {
 	margin-left: 475px !important;
 }
 
- .arrow.prev
+.backgroundChanged .arrow.prev
  {
 	margin-right: 475px !important;
  }
  
-.tabs
+.backgroundChanged .tabs
  {
 	margin-top: 20px !important;
 }
 
+/* Фикс для кнопки канобу */
 .logoBtn:hover
-{ /* Фикс для кнопки канобу */
+{ 
 	width: 79px !important;
 	z-index: 30 !important;
 }
@@ -86,13 +87,15 @@ a.like.counter
 	width:71px !important;	
 }
 
-.matrix .tabs i,
-.matrix .tabs b,
-.matrix .tabs span 
-{ /* Увеличен размер шрифта табов на главной */
+/* Увеличен размер шрифта табов на главной */
+.backgroundChanged .matrix .tabs i,
+.backgroundChanged .matrix .tabs b,
+.backgroundChanged .matrix .tabs span 
+{ 
 	font: 14px/18px "Arial",sans-serif !important;
 }
 
+/* Разное */
 
 .friendHighlight2 img
 {
@@ -134,9 +137,68 @@ a.like.counter
 	border-bottom: 1px dotted #3B6D96;
 }
 
-/* Вкладка "всё" */
-.gridScroll{
-	
+#settings-back
+{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.9);
+	z-index: 99999;
+}
+
+#settings-panel
+{
+	position: fixed;
+	background: #fff;
+	border: 10px solid rgba(0,91,217,0.1);
+	padding: 20px;
+	width: 500px;
+}
+
+#settings-panel .controls
+{
+	margin-bottom: 20px;
+}
+
+#settings-panel .controls > div
+{
+	margin-bottom: 7px;
+	font: 13px/22px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
+}
+
+#settings-panel input
+{
+	vertical-align: -2px;
+	margin-right: 5px;
+}
+
+#settings-panel h2
+{
+	font: bold 22px/26px "PT Sans",helvetica,"segoe UI",arial,sans-serif;	
+	margin-top: 0;
+}
+
+#settings-btn
+{
+	font: 13px/22px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
+}
+
+#settings-cancel,
+#settings-save
+{
+	font: bold 15px/15px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
+	color: #3B6D96;
+	border-bottom: 1px dotted #3B6D96;
+}
+
+#settings-cancel
+{
+	margin-left: 20px;
+	color: #a2a2a2;
+	border-bottom: 1px dotted #a2a2a2;
 }
 
 /* Меню */
@@ -170,7 +232,7 @@ a.like.counter
 	margin-left: 0px;
 }
 
-.header form {
+.headerIcons .header form {
 	margin-right: 60px !important;
 }
 
@@ -182,7 +244,7 @@ a.like.counter
 	margin-right: 10px;
 }
 
-.hBtns>li.faq {
+.headerIcons .hBtns>li.faq {
 	display: none;
 }
 
