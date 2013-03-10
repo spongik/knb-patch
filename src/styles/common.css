@@ -246,19 +246,23 @@
 }
 
 .headerIcons .header form {
-	margin-right: 40px !important;
-}
-
-.hBtns>li.friends {
-	margin-right: 10px;
+	margin-right: 20px !important;
 }
 
 .hBtns>li.articles.last {
 	margin-right: 10px;
 }
 
+.hBtns>li.epic {
+	margin-right: 10px;
+}
+
 .headerIcons .hBtns>li.faq {
 	display: none;
+}
+
+.headerIcons .header .allMenuBtn {
+	margin-right: 20px;
 }
 
 /* Фильтр */

@@ -8,7 +8,8 @@
 		"http://kanobu.ru/*"
 	],
 	"web_accessible_resources": [
-		"images/bg.jpg"
+		"images/bg.jpg",
+		"images/epic.png"
 	],
 	"background": {
 		"scripts": ["scripts/background.js"]
