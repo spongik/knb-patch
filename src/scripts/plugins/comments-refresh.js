@@ -55,13 +55,17 @@ $.knb.plugins.commentsRefresh = function () {
 		
 		var lastId = null;
 		var onRefresh = function() {
+			console.log('onRefresh');
 			$comments = $('#comments .comment[old!=1]');
 			if  ($comments.length > 0) {
+				console.log('$comments.length = ' + $comments.length);
 				$.knb.fn.updateRefreshBtnLabel();
 				
 				$old = $('#comments .comment[old=1]');
+				console.log('$old.length = ' + $old.length);
 				lastId =  $old.last().data('id');
 				$old.remove();
+				console.log('lastId = ' + lastId);
 				
 				document.location.replace('#refresh-comments');
 			}
