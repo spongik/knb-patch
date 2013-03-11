@@ -181,6 +181,14 @@
 	margin-top: 0;
 }
 
+.wrapProfileInfo .nameMail .userName,
+.wrapProfileInfo .nameMail .userMail
+{
+	display: block;
+	float: none;
+	clear: both;
+}
+
 #settings-btn
 {
 	font: 13px/14px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
