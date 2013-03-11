@@ -22,6 +22,7 @@ $(function() {
 				likeButton: true,
 			}
 		};
+		localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
 		firstTime = true;
 	}
 
