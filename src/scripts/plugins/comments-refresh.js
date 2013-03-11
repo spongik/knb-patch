@@ -60,7 +60,7 @@ $.knb.plugins.commentsRefresh = function () {
 		$.scrollTo( '#refresh-comments', 200 );
 		
 		$showMore.attr('data-url', refreshUrl);
-		$('#comments').css('min-height', $('#comments').height() + 'px');
+		$('#comments').height($('#comments').height());
 		$('#comments .comment').attr('old', '1').hide();
 		
 		var lastId = null;
@@ -73,7 +73,6 @@ $.knb.plugins.commentsRefresh = function () {
 			$old.remove();
 			
 			$.scrollTo( '#refresh-comments', 50 );
-			$('#comments').css('min-height', 'inherit');
 				
 			if (lastId != null) {
 				$('#comments .comment').each(function (i, el) {
