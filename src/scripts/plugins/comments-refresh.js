@@ -72,7 +72,7 @@ $.knb.plugins.commentsRefresh = function () {
 			lastId = $old.last().data('id');
 			$old.remove();
 			
-			$.scrollTo( '#refresh-comments', 50 );
+			$.scrollTo( '#refresh-comments', 100 );
 			$('#comments').css('min-height', 'inherit');
 				
 			if (lastId != null) {
@@ -94,7 +94,7 @@ $.knb.plugins.commentsRefresh = function () {
 	});
 	
 	$floatRefresh.click(function (ev) {
-		$.scrollTo( '#refresh-comments', 800, { onAfter: function() {
+		$.scrollTo( '#refresh-comments', 300, { onAfter: function() {
 			$refresh.trigger('click');
 		}});
 		
