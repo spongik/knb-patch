@@ -1,1 +1,1 @@
-C:/Python32/python ./deploy.py ../src
+python ./deploy.py ../src
