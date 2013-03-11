@@ -93,7 +93,7 @@ $.knb.initSettings = function (settings, firstTime) {
 		.append($submit)
 		.append($cancel);
 
-	$settingsBtn = $('<a href="#">Настройки плагина</a>')
+	$settingsBtn = $('<a href="#">Настройки расширения</a>')
 		.attr('id', 'settings-btn')
 		.click(function(ev) {
 			$settings
@@ -108,7 +108,7 @@ $.knb.initSettings = function (settings, firstTime) {
 	$('.profileInfo .nameMail').append($settingsBtn);
 
 	if (firstTime) {
-		$('<p>Благодарим вас за установку плагина!<br>\
+		$('<p>Благодарим вас за установку расширения Kanobu Flow!<br>\
 			<small>Вы всегда можете поменять настройки позже &mdash; просто нажмите на ссылку в \
 			выпадающем окне, которое появляется при наведении указателем на ваш профиль в верхнем меню.</small>\
 		   </p><br>')
