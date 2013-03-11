@@ -2,7 +2,7 @@ $.knb.plugins.pubVideo = function () {
 
 	var onVideoPlay = function (ev, $container) {
 		$iframe = $(">iframe", $('.embedVideo[binded!=1]', $container).attr('binded', '1'));
-		if ($iframe.length == 1) {		
+		if ($iframe.length == 1) {
 			$('.embedVideo', $container)
 				.width($iframe.width())
 				.height($iframe.height());
@@ -19,7 +19,7 @@ $.knb.plugins.pubVideo = function () {
 			$('.embedVideo', $container).bind('click', {id: id} , function (ev2) {
 				fId = ev2.data.id;
 				w = $(window).width();
-				h = $(window).height();			
+				h = $(window).height();
 				fw = 800;
 				fh = 600;
 				$('#video-back').show();

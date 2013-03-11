@@ -11,14 +11,14 @@ $.knb.fn.isInjected = function () {
 };
 
 $.fn.extend({
-    getNextUniqueId: function () {
-        return $.knb.uniqueId++;
-    }
+	getNextUniqueId: function () {
+		return $.knb.uniqueId++;
+	}
 });
 
 $.fn.extend({
-    watch: function (cb, data, delayed) {
-        $this = $(this);
+	watch: function (cb, data, delayed) {
+		$this = $(this);
 
 		if ($this.length == 0) {
 			$this = $([$this]);
@@ -57,5 +57,5 @@ $.fn.extend({
 		});
 		
 		return $this;
-    }
+	}
 });

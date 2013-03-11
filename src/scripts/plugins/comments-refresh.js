@@ -27,7 +27,7 @@ $.knb.fn.tryCreateShowMore = function (cb) {
 		$.knb.vars.tryCreateShowMore = true;
 		var tryCreateShowMore = function(ev) {
 			$('body').unbind('DOMSubtreeModified', tryCreateShowMore);
-			if ($('#comments, #player_comments').length > 0 && $('#comments > .showMore, #player_comments > .showMore').length == 0) {			
+			if ($('#comments, #player_comments').length > 0 && $('#comments > .showMore, #player_comments > .showMore').length == 0) {
 				$showMore = $('<a class="showMore"><i></i><div class="wrapBtnTxt"></div><em></em></a>');
 				$showMore.css('display', 'none');
 				$showMore.data('url', $.knb.fn.getRefreshCommentsUrl());

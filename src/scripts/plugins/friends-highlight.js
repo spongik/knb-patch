@@ -46,12 +46,12 @@ $.knb.plugins.friendsHighlight = function () {
 		return true;
 	});
 	
-	// shouts	
+	// shouts
 	var isShoutsPage = document.location.href.indexOf('http://kanobu.ru/shouts/') == 0;
 	$('.shoutsList').watch(function() {
 		$this = $(this);
 		$shouts = $('> li > .shout[friend!=1]', $(this)).attr('friend', '1');
-		friendsHighlight($('.ava', $shouts), 'friendHighlight');	
+		friendsHighlight($('.ava', $shouts), 'friendHighlight');
 		isShoutsPage && $shouts.each(function (i, shout) {
 			$(shout).parent().watch(function() {
 				friendsHighlight($('.shoutAnswers .ava[friend!=1]', $(this)).attr('friend', '1'), 'friendHighlight');

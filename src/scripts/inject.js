@@ -1,9 +1,9 @@
 function exec(fn) {
-    var script = document.createElement('script');
-    script.setAttribute("type", "application/javascript");
-    script.textContent = '(' + fn + ')();';
-    document.body.appendChild(script);
-    document.body.removeChild(script);
+	var script = document.createElement('script');
+	script.setAttribute("type", "application/javascript");
+	script.textContent = '(' + fn + ')();';
+	document.body.appendChild(script);
+	document.body.removeChild(script);
 }
 
 exec(function () {
@@ -18,6 +18,6 @@ exec(function () {
 			}
 			return data;
 		},
-    });
+	});
 	$('body').append('<div id="injected" style="display: none;"></div>');
 });
