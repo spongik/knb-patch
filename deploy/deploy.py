@@ -33,7 +33,7 @@ for content_scripts_part in manifest['content_scripts']:
             os.unlink(script_path)
         merged_js.close()
         merged_js_full_path = deploy_path + '/' + merged_js_path
-        subprocess.call(['tools/AjaxMin.exe', merged_js_full_path, '-out', merged_js_full_path, '–clobber'])
+        subprocess.call(['tools/AjaxMin.exe', merged_js_full_path, '-out', merged_js_full_path, '–clobber', '-enc:in', 'utf-8', '-enc:out', 'utf-8'])
         content_scripts_part['js'] = [merged_js_path]
 
 with open(deploy_path + '/manifest.json', encoding='utf-8', mode='w+') as manifest_merged:
