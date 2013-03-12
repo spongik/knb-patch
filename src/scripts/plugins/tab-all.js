@@ -8,9 +8,9 @@ $.knb.plugins.tabAll = function () {
 		.css('width','3840px');
 	
 	$('.matrixContainer.allShow')
-		.append($('<div class="matrixContainer"></div>').append($('.matrixContainer[data-grid-item=1]').clone(true)))
+		.append($('<div class="matrixContainer"></div>').append($('.matrixContainer[data-grid-item=3]').clone(true)))
 		.append($('<div class="matrixContainer"></div>').append($('.matrixContainer[data-grid-item=2]').clone(true)))
-		.append($('<div class="matrixContainer"></div>').append($('.matrixContainer[data-grid-item=3]').clone(true)));
+		.append($('<div class="matrixContainer"></div>').append($('.matrixContainer[data-grid-item=1]').clone(true)));
 	
 	$('.tabs a').click(function() {
 		if ($(this).hasClass('allShowLink')) {
