@@ -16,7 +16,7 @@ if not os.path.exists(manifest_orig):
     sys.exit('Error: manifest file "%s" not exists.' % manifest_orig)
 
 deploy_path = '.deploy'
-dir_util.copy_tree(path, deploy_path)
+dir_util.copy_tree(path, deploy_path, preserve_mode=0, preserve_times=0)
 
 manifest_path = deploy_path + '/manifest.json'; 
 manifest_raw = open(manifest_path, encoding='utf-8').read()
@@ -24,7 +24,7 @@ manifest = json.loads(manifest_raw)
 
 i = 1
 for content_scripts_part in manifest['content_scripts']:
-    merged_js_path = 'scripts/merged.' + str(++i) + '.js';
+    merged_js_path = 'scripts/merged-' + str(++i) + '.js';
     with open(deploy_path + '/' + merged_js_path, encoding='utf-8', mode='w+') as merged_js:
         scripts = content_scripts_part['js']
         for script in scripts:

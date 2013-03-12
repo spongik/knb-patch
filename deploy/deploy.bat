@@ -2,4 +2,4 @@
 cd ..
 git pull
 cd deploy
-python ./deploy.py ../src
+C:/python32/python ./deploy.py ../src
