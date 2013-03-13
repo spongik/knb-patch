@@ -45,6 +45,7 @@
 				"scripts/plugins/friends-highlight.js",
 				"scripts/plugins/like-button.js",
 				"scripts/plugins/video-download.js",
+				"scripts/plugins/scrollTop.js"
 				"scripts/startup.js"
 			],
 			"css": ["styles/common.css"]
