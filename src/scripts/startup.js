@@ -7,7 +7,7 @@ $(function() {
 		settings = {
 			version: {
 				major: 1,
-				minor: 0
+				minor: 1
 			},
 			plugins: {
 				background: true,
@@ -20,10 +20,20 @@ $(function() {
 				pubVideo: true,
 				pubFilter: true,
 				likeButton: true,
+				videoDownload: true,
 			}
 		};
 		localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
 		firstTime = true;
+	}
+	
+	if (settings.version.major == 1 && settings.version.minor == 0) {
+		settings.plugins.videoDownload = true;
+		settings.version = {
+			major: 1,
+			minor: 1
+		};
+		localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
 	}
 
 	$.knb.initSettings(settings, firstTime);
@@ -90,6 +100,7 @@ $.knb.initSettings = function (settings, firstTime) {
 			.append($('<div></div>').append(createCheckbox('commentsNotify', 'Показывать количество новых комментариев в иконке вкладки', settings.plugins.commentsNotify)))
 			.append($('<div></div>').append(createCheckbox('pubVideo', 'Открвать видео в Пабе в окне', settings.plugins.pubVideo)))
 			.append($('<div></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков', settings.plugins.pubFilter)))
+			.append($('<div></div>').append(createCheckbox('videoDownload', 'Показывать ссылки для скачивания видео', settings.plugins.videoDownload)))
 		)
 		.append($submit)
 		.append($cancel);

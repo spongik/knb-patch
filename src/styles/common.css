@@ -110,6 +110,18 @@
     border: 4px solid rgba(0,0,0,0);
 }
 
+#video-download-links
+{
+	font: 15px/15px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
+	margin-top: 10px;
+}
+
+#video-download-links a
+{
+	color: #3B6D96;
+	border-bottom: 1px dotted #3B6D96;
+}
+
 #comments .comment
 {
 	-webkit-transition: All 1s;

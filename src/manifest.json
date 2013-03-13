@@ -44,6 +44,7 @@
 				"scripts/plugins/header-icons.js",
 				"scripts/plugins/friends-highlight.js",
 				"scripts/plugins/like-button.js",
+				"scripts/plugins/video-download.js",
 				"scripts/startup.js"
 			],
 			"css": ["styles/common.css"]
