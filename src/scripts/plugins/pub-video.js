@@ -1,5 +1,6 @@
 $.knb.plugins.pubVideo = function () {
 
+	var frames = []
 	var onVideoPlay = function (ev, $container) {
 		$iframe = $(">iframe", $('.embedVideo[binded!=1]', $container).attr('binded', '1'));
 		if ($iframe.length == 1) {
@@ -14,7 +15,7 @@ $.knb.plugins.pubVideo = function () {
 				.css('cursor', 'hand');
 			id = 'video-iframe-' + $container.data('object-id');
 			$iframeClone.attr('id', id);
-			$('body').append($iframeClone);
+			frames[id] = $iframeClone.clone();
 			
 			$('.embedVideo', $container).bind('click', {id: id} , function (ev2) {
 				fId = ev2.data.id;
@@ -22,7 +23,7 @@ $.knb.plugins.pubVideo = function () {
 				h = $(window).height();
 				fw = 800;
 				fh = 600;
-                $iframeClone = $('#' + fId).clone();
+                $iframeClone = frames[id].clone();
 				$('#video-back').append($iframeClone).show();
 				$iframeClone
 					.css('position', 'fixed')
