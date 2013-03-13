@@ -1,14 +1,14 @@
 $.knb.plugins.scrollTop = function (){
-	$('body').append('<a href="#" class="scrollup">наверх</a>');
+	$('body').append('<a href="#" id="scroll-top-btn"><span>&uarr;</span>наверх</a>');
 	$(window).scroll(function(){
-        if ($(this).scrollTop() > 100) {
-            $('.scrollup').fadeIn();
-        } else {
-            $('.scrollup').fadeOut();
-        }
-    });
-	$('.scrollup').click(function(){
-    $("html, body").animate({ scrollTop: 0 }, 600);
-    return false;
-    });
+		if ($(this).scrollTop() > 100) {
+			$('#scroll-top-btn').css('opacity', '0.2');
+		} else {
+			$('#scroll-top-btn').css('opacity', '0');
+		}
+	}).trigger('scroll');
+	$('#scroll-top-btn').click(function(){
+		$("html, body").animate({ scrollTop: 0 }, 600);
+		return false;
+	});
 };
