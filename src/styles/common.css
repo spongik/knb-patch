@@ -366,6 +366,13 @@ ul.filter2 li.isSelected {
 	filter: none;
 }
 
+.video-download-wrap {
+	background: #fff;
+	border: 10px solid rgba(0,91,217,0.1);
+	padding: 20px;
+	font: 13px/22px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
+}
+
 /* Кнопка "Вверх" */
 #scroll-top-btn {
 	-webkit-transition: All 0.6s;

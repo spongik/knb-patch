@@ -9,7 +9,15 @@ $.knb.plugins.videoDownload = function () {
 			if (!href) {
 				alert('Невозможно загрузить видео');
 			} else {
-				window.open(href);
+				$wrap = $('<div class="video-download-wrap">Ссылка для скачивания видео:<br/></div>');
+				$link = $('<a></a>').attr('target', '_blank').attr('href', href).html(href);
+				$wrap
+					.append($link)
+					.css('position', 'fixed')
+					.css('left', Math.round(($(window).width() - $wrap.width()) / 2) + 'px')
+					.css('top', Math.round(($(window).height() - $wrap.height()) / 2) + 'px')
+					.css('display', 'block');
+				$downloadBack.append($wrap).show();
 			}
 			return false;
 		};
@@ -19,6 +27,24 @@ $.knb.plugins.videoDownload = function () {
 		$download.append($('<span>&nbsp;</span>'));
 		$download.append($('<a></a>').data('type','hd').attr('href', '#').html('HD').click(downloadClick));
 		$download.insertAfter($("#player_container"));
+		
+		$downloadBack = $('<div></div>')
+			.attr('id', 'video-download-back')
+			.css('display', 'none')
+			.css('position', 'fixed')
+			.css('width', '100%')
+			.css('height', '100%')
+			.css('left', '0')
+			.css('top', '0')
+			.css('background', 'rgba(0,0,0,0.9)')
+			.css('z-index', '99999')
+			.bind('click', function (ev) {
+				$this = $(this);
+				$this.find('div').remove();			
+				$this.fadeOut();
+				ev.preventDefault();
+			});
+		$('body').append($downloadBack);
 	}
 
 };
