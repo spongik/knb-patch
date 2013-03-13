@@ -370,6 +370,7 @@ ul.filter2 li.isSelected {
 	background: #fff;
 	border: 10px solid rgba(0,91,217,0.1);
 	padding: 20px;
+	width: 500px;
 	font: 13px/22px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
 }
 

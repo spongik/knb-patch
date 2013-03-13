@@ -9,13 +9,13 @@ $.knb.plugins.videoDownload = function () {
 			if (!href) {
 				alert('Невозможно загрузить видео');
 			} else {
-				$wrap = $('<div class="video-download-wrap">Ссылка для скачивания видео:<br/></div>');
+				$wrap = $('<div class="video-download-wrap">Ссылка для загрузки видео:<br/></div>');
 				$link = $('<a></a>').attr('target', '_blank').attr('href', href).html(href);
 				$wrap
 					.append($link)
 					.css('position', 'fixed')
-					.css('left', Math.round(($(window).width() - $wrap.width()) / 2) + 'px')
-					.css('top', Math.round(($(window).height() - $wrap.height()) / 2) + 'px')
+					.css('left', Math.round(($(window).width() - 500) / 2) + 'px')
+					.css('top', '200px')
 					.css('display', 'block');
 				$downloadBack.append($wrap).show();
 			}
