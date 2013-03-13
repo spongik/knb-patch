@@ -49,8 +49,9 @@ $.knb.plugins.pubFilter = function () {
 			
 		}
 		reloadTimeout = setTimeout(function() {
-			$(window).scrollTop( $(window).scrollTop() + 1 );
-			$(window).scrollTop( $(window).scrollTop() - 1 );
+			scroll = $(window).scrollTop();
+			$(window).scrollTop( scroll + 1 );
+			$(window).scrollTop( scroll );
 		}, 100);
 		return true;
 	};
