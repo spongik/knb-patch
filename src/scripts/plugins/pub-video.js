@@ -14,7 +14,7 @@ $.knb.plugins.pubVideo = function () {
 				.css('cursor', 'hand');
 			id = 'video-iframe-' + $container.data('object-id');
 			$iframeClone.attr('id', id);
-			$('#video-back').append($iframeClone);
+			$('body').append($iframeClone);
 			
 			$('.embedVideo', $container).bind('click', {id: id} , function (ev2) {
 				fId = ev2.data.id;
@@ -22,8 +22,9 @@ $.knb.plugins.pubVideo = function () {
 				h = $(window).height();
 				fw = 800;
 				fh = 600;
-				$('#video-back').show();
-				$('#' + fId)
+                $iframeClone = $('#' + fId).clone();
+				$('#video-back').append($iframeClone).show();
+				$iframeClone
 					.css('position', 'fixed')
 					.width(fw)
 					.height(fh)
@@ -64,7 +65,7 @@ $.knb.plugins.pubVideo = function () {
 		.css('z-index', '99999')
 		.bind('click', function (ev) {
 			$this = $(this);
-			$this.find('iframe').remove();
+            $this.find('iframe').remove();			
 			$this.fadeOut();
 			ev.preventDefault();
 		});
