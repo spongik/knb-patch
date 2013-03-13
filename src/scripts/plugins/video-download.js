@@ -40,9 +40,11 @@ $.knb.plugins.videoDownload = function () {
 			.css('z-index', '99999')
 			.bind('click', function (ev) {
 				$this = $(this);
-				$this.find('div').remove();			
-				$this.fadeOut();
-				ev.preventDefault();
+				if ($(ev.target).is('#video-download-back')) {
+					$this.find('div').remove();			
+					$this.fadeOut();
+					return false;
+				}
 			});
 		$('body').append($downloadBack);
 	}
