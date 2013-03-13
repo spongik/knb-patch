@@ -77,8 +77,9 @@ $.knb.plugins.pubFilter = function () {
 	
 	if (document.location.href.indexOf('http://kanobu.ru/accounts/') == 0) {
 		$filter.css('top', '40px').css('position', 'relative').insertBefore('.content h2');
-	} else {
-		$filter.css('margin-right', '20px').insertAfter('.headFilter .filter');
+	} else if (document.location.href.indexOf('http://kanobu.ru/pub/') == 0) {
+		$filter.css('margin-right', '20px').insertAfter('.userFeed .headFilter .filter');
+	} else if (document.location.href == 'http://kanobu.ru/') {
+		$filter.css('margin-right', '20px').insertAfter('.content > .headFilter .filter');
 	}
-
 };
