@@ -369,12 +369,16 @@ ul.filter2 li.isSelected {
 /* Кнопка "Вверх" */
 .scrollup{
     width:80px;
-    height:40px;
+    height:20px;
+	padding:10px;
     opacity:1;
     position:fixed;
+	z-index:30;
     bottom:50px;
     right:100px;
     display:none;
+	font-family:Verdana, Geneva, sans-serif;
+	font-weight:bold;
 	text-align:center;
     background:#fff;
 	box-shadow:0px 0px 10px rgba(0,0,0,0.8)

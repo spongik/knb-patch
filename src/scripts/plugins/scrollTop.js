@@ -1,5 +1,5 @@
 $.knb.plugins.scrollTop = function (){
-	$('body').append('<a href="#" class="scrollup">Scroll</a>');
+	$('body').append('<a href="#" class="scrollup">наверх</a>');
 	$(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
             $('.scrollup').fadeIn();
