@@ -29,8 +29,6 @@ for content_scripts_part in manifest['content_scripts']:
         scripts = content_scripts_part['js']
         for script in scripts:
             script_path = deploy_path + '/' + script;
-            if not ('.min.' in script_path):
-                subprocess.call(['tools/AjaxMin.exe', script_path, '-out', script_path, '–clobber', '-enc:in', 'utf-8', '-enc:out', 'utf-8'])
             merged_js.write(open(script_path, encoding='utf-8').read() + '\r\n\r\n')
             os.unlink(script_path)
         merged_js.close()
