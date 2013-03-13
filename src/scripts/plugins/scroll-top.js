@@ -2,7 +2,7 @@ $.knb.plugins.scrollTop = function (){
 	$('body').append('<a href="#" id="scroll-top-btn"><span>&uarr;</span>наверх</a>');
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
-			$('#scroll-top-btn').css('opacity', '0.2');
+			$('#scroll-top-btn').css('opacity', '0.4');
 		} else {
 			$('#scroll-top-btn').css('opacity', '0');
 		}

@@ -370,16 +370,16 @@ ul.filter2 li.isSelected {
 #scroll-top-btn {
 	-webkit-transition: All 0.6s;
     width:80px;
-    height:180px;
-	padding: 90px 10px 10px 10px;
-    opacity: 0.2;
+    height:80px;
+	padding: 20px 10px 10px 10px;
+    opacity: 0.4;
     position:fixed;
 	z-index:30;
     bottom:50px;
     right:0px;
-	font: normal normal 13px/52px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
+	font: normal normal 13px/42px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
 	text-align:center;
-    background:#fff;
+    background:#efefef;
 }
 
 #scroll-top-btn span{
@@ -389,5 +389,5 @@ ul.filter2 li.isSelected {
 }
 
 #scroll-top-btn:hover {
-	opacity: 0.5 !important;
+	opacity: 0.6 !important;
 }
