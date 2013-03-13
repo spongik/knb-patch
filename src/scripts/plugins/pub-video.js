@@ -64,7 +64,7 @@ $.knb.plugins.pubVideo = function () {
 		.css('z-index', '99999')
 		.bind('click', function (ev) {
 			$this = $(this);
-			$this.find('iframe').css('display', 'none');
+			$this.find('iframe').remove();
 			$this.fadeOut();
 			ev.preventDefault();
 		});
