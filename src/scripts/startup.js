@@ -20,7 +20,7 @@ $(function() {
 				commentsRefresh: true,
 				commentsNotify: true,
 				pubVideo: true,
-				pubFilter: true,
+				pubFilter: false,
 				likeButton: true,
 				videoDownload: true,
 				scrollTop: true,
@@ -104,7 +104,7 @@ $.knb.initSettings = function (settings, firstTime, updated) {
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsRefresh', 'Кнопка &laquo;Обновить комментарии&raquo;', settings.plugins.commentsRefresh)))
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsNotify', 'Показывать количество новых комментариев в иконке вкладки', settings.plugins.commentsNotify)))
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubVideo', 'Открывать видео в Пабе в окне', settings.plugins.pubVideo)))
-			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков', settings.plugins.pubFilter)))
+			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков (экспериментальное)', settings.plugins.pubFilter)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('videoDownload', 'Показывать ссылки для скачивания видео', settings.plugins.videoDownload)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('scrollTop', 'Добавить кнопку &laquo;наверх&raquo;', settings.plugins.scrollTop)))
 		)
