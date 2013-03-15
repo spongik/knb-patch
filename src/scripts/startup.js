@@ -31,10 +31,8 @@ $(function() {
 		firstTime = true;
 	}
 	
-	if (settings.version.major == 1 && settings.version.minor == 0) {
+	if (settings.version.major == 1 && settings.version.minor == 1) {
 		updated = settings.version;
-		settings.plugins.videoDownload = true;
-		settings.plugins.scrollTop = true;
 		settings.plugins.shoutsModif = true;
 		settings.version = {
 			major: 1,
