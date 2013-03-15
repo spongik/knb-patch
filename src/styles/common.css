@@ -399,3 +399,6 @@ ul.filter2 li.isSelected {
 #scroll-top-btn:hover {
 	opacity: 0.6 !important;
 }
+
+/* Корректировка бага с неправильным z-index надписи "пост удален" */
+li.userMessageBlock.removeItem.deletedItem{z-index: 1 !important;}
