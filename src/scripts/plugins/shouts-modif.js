@@ -1,4 +1,4 @@
-$.knb.plugins.tabAll = function () {
+$.knb.plugins.shoutsModif = function () {
 	$('.commentsAnchor').click(function(){
 		var currShoutLink = $(this).attr('href');
 		var currShoutId = currShoutLink.substr(13);
