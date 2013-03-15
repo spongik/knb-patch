@@ -46,6 +46,7 @@
 				"scripts/plugins/like-button.js",
 				"scripts/plugins/video-download.js",
 				"scripts/plugins/scroll-top.js",
+				"scripts/plugins/shouts-modif.js",
 				"scripts/startup.js"
 			],
 			"css": ["styles/common.css"]

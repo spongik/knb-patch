@@ -24,6 +24,7 @@ $(function() {
 				likeButton: true,
 				videoDownload: true,
 				scrollTop: true,
+				shoutsModif: true,
 			}
 		};
 		localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
@@ -34,9 +35,10 @@ $(function() {
 		updated = settings.version;
 		settings.plugins.videoDownload = true;
 		settings.plugins.scrollTop = true;
+		settings.plugins.shoutsModif = true;
 		settings.version = {
 			major: 1,
-			minor: 1
+			minor: 2
 		};
 		localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
 	}
@@ -107,6 +109,7 @@ $.knb.initSettings = function (settings, firstTime, updated) {
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков (экспериментальное)', settings.plugins.pubFilter)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('videoDownload', 'Показывать ссылки для скачивания видео', settings.plugins.videoDownload)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('scrollTop', 'Добавить кнопку &laquo;наверх&raquo;', settings.plugins.scrollTop)))
+			.append($('<div data-version="1.2"></div>').append(createCheckbox('scrollTop', 'Модификация воплей', settings.plugins.scrollTop)))
 		)
 		.append($submit)
 		.append($cancel);
