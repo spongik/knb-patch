@@ -18,10 +18,6 @@ $.knb.vars._watchData = {};
 $.fn.extend({
 	watch: function (cb, data, delayed) {
 		$this = $(this);
-
-		if ($this.length == 0) {
-			$this = $([$this]);
-		}
 		
 		$this.each(function(i, item) {
 			$item = $(item);
@@ -31,11 +27,12 @@ $.fn.extend({
 				
 				cbWrapped = function() {
 					if (cb.call(data.context[0], ev, data.data)) {
-						data.context.bind('DOMSubtreeModified', data.id, onDOMSubtreeModified);
+						setTimeout(function() {
+							data.context.bind('DOMSubtreeModified', data.id, onDOMSubtreeModified);
+						}, 0);
 					}
 					data.timer = null;
 				};
-				
 				if (data.timer == null && !delayed) {
 					cbWrapped();
 					cbWrapped = function() {};

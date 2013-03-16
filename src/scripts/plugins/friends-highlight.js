@@ -26,6 +26,7 @@ $.knb.plugins.friendsHighlight.run = function () {
 		$users.each(function(i, user) {
 			$user = $(user);
 			profile = $user.attr('href');
+			
 			for (var friend in friends) {
 				if (profile == friends[friend].profile) {
 					$user.addClass(cssClass);
@@ -43,11 +44,13 @@ $.knb.plugins.friendsHighlight.run = function () {
 	});
 	
 	// pub posts
-	$('.postList').watch(function() {
+	pubPostsCb = function() {
 		$this = $(this);
 		friendsHighlight($('> li .ava[friend!=1]', $(this)).attr('friend', '1'), 'friendHighlight');
 		return true;
-	});
+	};
+	$('.postList:first').watch(pubPostsCb);
+	$('.postList:last').watch(pubPostsCb);
 	
 	// shouts
 	var isShoutsPage = document.location.href.indexOf('http://kanobu.ru/shouts/') == 0;
