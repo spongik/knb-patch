@@ -1,6 +1,6 @@
 $.knb.plugins.background = {};
 
-$.knb.plugins.background.async = true;
+$.knb.plugins.background.async = false;
 $.knb.plugins.background.run = function () {
 
 	$('body').addClass('backgroundChanged');

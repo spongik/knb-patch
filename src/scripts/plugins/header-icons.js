@@ -1,6 +1,6 @@
 $.knb.plugins.headerIcons = {};
 
-$.knb.plugins.headerIcons.async = true;
+$.knb.plugins.headerIcons.async = false;
 $.knb.plugins.headerIcons.run = function () {
 
 	$('body').addClass('headerIcons');
