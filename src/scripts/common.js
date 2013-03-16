@@ -1,21 +1,20 @@
 $.knb = {};
-$.knb.storageKeys = {};
 $.knb.fn = {};
 $.knb.vars = {};
 $.knb.plugins = {};
-$.knb.watchData = {};
-$.knb.uniqueId = 1;
+
+$.knb.vars.storageKeys = {};
 
 $.knb.fn.isInjected = function () {
 	return $('#injected').length > 0;
 };
 
-$.fn.extend({
-	getNextUniqueId: function () {
-		return $.knb.uniqueId++;
-	}
-});
+$.knb.vars._uniqueId = 1;
+$.knb.fn.getNextUniqueId = function () {
+	return $.knb.vars._uniqueId++;
+};
 
+$.knb.vars._watchData = {};
 $.fn.extend({
 	watch: function (cb, data, delayed) {
 		$this = $(this);
@@ -27,7 +26,7 @@ $.fn.extend({
 		$this.each(function(i, item) {
 			$item = $(item);
 			var onDOMSubtreeModified = function(ev) {
-				data = $.knb.watchData[ev.data];
+				data = $.knb.vars._watchData[ev.data];
 				data.context.unbind('DOMSubtreeModified', onDOMSubtreeModified);
 				
 				cbWrapped = function() {
@@ -46,8 +45,8 @@ $.fn.extend({
 				data.timer = setTimeout(cbWrapped, 100);
 			}
 			
-			var id = $.fn.getNextUniqueId();
-			$.knb.watchData[id] = {
+			var id = $.knb.fn.getNextUniqueId();
+			$.knb.vars._watchData[id] = {
 				id: id,
 				data: data,
 				context: $item,

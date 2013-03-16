@@ -1,7 +1,7 @@
 $(function() {
 
-	$.knb.storageKeys.settings = 'settings';
-	settings = $.parseJSON(localStorage.getItem($.knb.storageKeys.settings));
+	$.knb.vars.storageKeys.settings = 'settings';
+	settings = $.parseJSON(localStorage.getItem($.knb.vars.storageKeys.settings));
 	
 	currentVersion = {
 		major: 1,
@@ -29,7 +29,7 @@ $(function() {
 				scrollTop: true,
 			}
 		};
-		localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
+		$.knb.fn.saveSettings(settings);
 		firstTime = true;
 	}
 	
@@ -39,10 +39,10 @@ $(function() {
 		
 		settings.plugins.videoDownload = true;
 		settings.plugins.scrollTop = true;
-		localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
+		$.knb.fn.saveSettings(settings);
 	}
 
-	$.knb.initSettings(settings, firstTime, updated);
+	$.knb.fn.initSettings(settings, firstTime, updated);
 	
 	for (var pluginName in settings.plugins) {
 		if ($.knb.plugins[pluginName] && settings.plugins[pluginName]) {
@@ -57,7 +57,11 @@ $(function() {
 
 });
 
-$.knb.initSettings = function (settings, firstTime, updated) {
+$.knb.fn.saveSettings = function (settings) {
+	localStorage.setItem($.knb.vars.storageKeys.settings, JSON.stringify(settings));
+};
+
+$.knb.fn.initSettings = function (settings, firstTime, updated) {
 
 	var createCheckbox = function(name, label, checked) {
 		$cbx = $('<input type="checkbox" />')
@@ -84,8 +88,7 @@ $.knb.initSettings = function (settings, firstTime, updated) {
 				$option = $(option);
 				settings.plugins[$option.attr('name')] = $option.is(':checked');
 			});
-			console.log($('.controls input:checkbox', $settings).length);
-			localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
+			$.knb.fn.saveSettings(settings);
 			document.location.reload();
 			
 			ev.preventDefault();

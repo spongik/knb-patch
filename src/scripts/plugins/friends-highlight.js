@@ -3,7 +3,7 @@ $.knb.plugins.friendsHighlight = {};
 $.knb.plugins.friendsHighlight.async = true;
 $.knb.plugins.friendsHighlight.run = function () {
 
-	$.knb.storageKeys.friendsHighlight = 'friends-list';
+	$.knb.vars.storageKeys.friendsHighlight = 'friends-list';
 	
 	var friends = [];
 	var myProfile = $('.profile > a:first').attr('href');
@@ -17,10 +17,10 @@ $.knb.plugins.friendsHighlight.run = function () {
 				name: userName
 			});
 		});
-		localStorage.setItem($.knb.storageKeys.friendsHighlight, JSON.stringify(friends));
+		localStorage.setItem($.knb.vars.storageKeys.friendsHighlight, JSON.stringify(friends));
 	}
 	
-	friends = $.parseJSON(localStorage.getItem($.knb.storageKeys.friendsHighlight));
+	friends = $.parseJSON(localStorage.getItem($.knb.vars.storageKeys.friendsHighlight));
 	
 	friendsHighlight = function($users, cssClass) {
 		$users.each(function(i, user) {
