@@ -1,4 +1,7 @@
-$.knb.plugins.tabAll = function () {
+$.knb.plugins.tabAll = {};
+
+$.knb.plugins.tabAll.async = true;
+$.knb.plugins.tabAll.run = function () {
 
 	$('.tabs').find('ul')
 		.append('<li><a href="#" class="allShowLink" data-grid="4"><i></i><span>Все</span><b></b></a></li>');

@@ -1,4 +1,7 @@
-$.knb.plugins.commentsHighlight = function () {
+$.knb.plugins.commentsHighlight = {};
+
+$.knb.plugins.commentsHighlight.async = true;
+$.knb.plugins.commentsHighlight.run = function () {
 
 		var bindComments = function() {
 			$comments = $('#comments .comment[binded!=1]');

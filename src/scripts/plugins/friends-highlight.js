@@ -1,4 +1,7 @@
-$.knb.plugins.friendsHighlight = function () {
+$.knb.plugins.friendsHighlight = {};
+
+$.knb.plugins.friendsHighlight.async = true;
+$.knb.plugins.friendsHighlight.run = function () {
 
 	$.knb.storageKeys.friendsHighlight = 'friends-list';
 	

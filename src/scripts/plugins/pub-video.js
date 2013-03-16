@@ -1,4 +1,7 @@
-$.knb.plugins.pubVideo = function () {
+$.knb.plugins.pubVideo = {};
+
+$.knb.plugins.pubVideo.async = true;
+$.knb.plugins.pubVideo.run = function () {
 
 	var frames = []
 	var onVideoPlay = function (ev, $container) {

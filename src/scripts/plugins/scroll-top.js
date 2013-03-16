@@ -1,4 +1,7 @@
-$.knb.plugins.scrollTop = function (){
+$.knb.plugins.scrollTop = {};
+
+$.knb.plugins.scrollTop.async = true;
+$.knb.plugins.scrollTop.run = function (){
 	$('body').append('<a href="#" id="scroll-top-btn"><span>&uarr;</span>наверх</a>');
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {

@@ -40,7 +40,10 @@ $.knb.fn.tryCreateShowMore = function (cb) {
 	}
 };
 
-$.knb.plugins.commentsRefresh = function () {
+$.knb.plugins.commentsRefresh = {};
+
+$.knb.plugins.commentsRefresh.async = false;
+$.knb.plugins.commentsRefresh.run = function () {
 
 	var $refresh = $('<a href="#" id="refresh-comments" class="wrapBtnTxt">asd</a>');
 	var $floatRefresh = $('<a href="#" id="refresh-comments-float">asd</a>');

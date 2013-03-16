@@ -1,4 +1,7 @@
-$.knb.plugins.commentsNotify = function () {
+$.knb.plugins.commentsNotify = {};
+
+$.knb.plugins.commentsNotify.async = false;
+$.knb.plugins.commentsNotify.run = function () {
 
 		var timerCommentsNotify = null;
 		var active = true;

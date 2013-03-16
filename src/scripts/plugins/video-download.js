@@ -1,4 +1,7 @@
-$.knb.plugins.videoDownload = function () {
+$.knb.plugins.videoDownload = {};
+
+$.knb.plugins.videoDownload.async = true;
+$.knb.plugins.videoDownload.run = function () {
 
 	if ( $('#player_playlist').length == 1 ) {
 		

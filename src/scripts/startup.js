@@ -2,15 +2,18 @@ $(function() {
 
 	$.knb.storageKeys.settings = 'settings';
 	settings = $.parseJSON(localStorage.getItem($.knb.storageKeys.settings));
+	
+	currentVersion = {
+		major: 1,
+		minor: 1
+	};
+	
 	firstTime = false;
 	updated = null;
 
 	if (!settings) {
 		settings = {
-			version: {
-				major: 1,
-				minor: 1
-			},
+			version: currentVersion,
 			plugins: {
 				background: true,
 				headerIcons: true,
@@ -32,19 +35,24 @@ $(function() {
 	
 	if (settings.version.major == 1 && settings.version.minor == 0) {
 		updated = settings.version;
+		settings.version = currentVersion;
+		
 		settings.plugins.videoDownload = true;
 		settings.plugins.scrollTop = true;
-		settings.version = {
-			major: 1,
-			minor: 1
-		};
 		localStorage.setItem($.knb.storageKeys.settings, JSON.stringify(settings));
 	}
 
 	$.knb.initSettings(settings, firstTime, updated);
 	
-	for (var plugin in settings.plugins) {
-		$.knb.plugins[plugin] && settings.plugins[plugin] && $.knb.plugins[plugin]();
+	for (var pluginName in settings.plugins) {
+		if ($.knb.plugins[pluginName] && settings.plugins[pluginName]) {
+			plugin = $.knb.plugins[pluginName];
+			if (plugin.async) {
+				setTimeout(plugin.run, 0);
+			} else {
+				plugin.run();
+			}
+		}
 	}
 
 });

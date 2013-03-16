@@ -1,4 +1,7 @@
-$.knb.plugins.pubFilter = function () {
+$.knb.plugins.pubFilter = {};
+
+$.knb.plugins.pubFilter.async = true;
+$.knb.plugins.pubFilter.run = function () {
 
 	$.knb.storageKeys.pubFilter = 'pub-filter-threshold';
 	
