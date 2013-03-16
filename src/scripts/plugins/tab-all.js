@@ -20,7 +20,7 @@ $.knb.plugins.tabAll.run = function () {
 			if ($(this).hasClass('allShowLink')) {
 				$('#gridScroll, #gridWrapper').height(1551);
 			} else {
-				$('#gridScroll, #gridWrapper').height(500);
+				$('#gridScroll, #gridWrapper').height(517);
 			}
 		});
 	}
