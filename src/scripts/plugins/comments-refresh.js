@@ -10,11 +10,14 @@ $.knb.fn.updateRefreshBtnLabel = function (newCommentsCount) {
 
 $.knb.fn.getRefreshCommentsUrl = function () {
 	data = $('.mainColumn script:last').html();
-	objectId = /object_id: (\d+)/.exec(data)[1];
-	contentTypeId = /content_type: (\d+)/.exec(data)[1];
-	
-	url = '/comments/list/' + contentTypeId + '/' + objectId + '/?max_id=9999999999&paginate_by=20';
-	return url;
+	if (data) {
+		objectId = /object_id: (\d+)/.exec(data)[1];
+		contentTypeId = /content_type: (\d+)/.exec(data)[1];
+		url = '/comments/list/' + contentTypeId + '/' + objectId + '/?max_id=9999999999&paginate_by=20';
+		return url;
+	} else {
+		return null;
+	}
 };
 
 $.knb.fn.getLastCommentId = function () {
