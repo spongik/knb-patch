@@ -5,7 +5,7 @@ $(function() {
 	
 	currentVersion = {
 		major: 1,
-		minor: 1
+		minor: 2
 	};
 	
 	firstTime = false;
@@ -26,6 +26,7 @@ $(function() {
 				pubFilter: false,
 				likeButton: true,
 				videoDownload: true,
+				videoAutoplay: true,
 				scrollTop: true,
 			}
 		};
@@ -34,11 +35,21 @@ $(function() {
 	}
 	
 	if (settings.version.major == 1 && settings.version.minor == 0) {
-		updated = settings.version;
-		settings.version = currentVersion;
+		updated = updated ? updated : settings.version;
+		settings.version = { major: 1, minor: 1 };
 		
 		settings.plugins.videoDownload = true;
 		settings.plugins.scrollTop = true;
+	}
+	
+	if (settings.version.major == 1 && settings.version.minor == 1) {
+		updated = updated ? updated : settings.version;
+		settings.version = { major: 1, minor: 2 };
+		
+		settings.plugins.videoAutoplay = true;
+	}
+	
+	if (updated) {
 		$.knb.fn.saveSettings(settings);
 	}
 
@@ -115,8 +126,9 @@ $.knb.fn.initSettings = function (settings, firstTime, updated) {
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsRefresh', 'Кнопка &laquo;Обновить комментарии&raquo;', settings.plugins.commentsRefresh)))
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsNotify', 'Показывать количество новых комментариев в иконке вкладки', settings.plugins.commentsNotify)))
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubVideo', 'Открывать видео в Пабе в окне', settings.plugins.pubVideo)))
-			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков (экспериментальное)', settings.plugins.pubFilter)))
+			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков <small>(экспериментальное)</small>', settings.plugins.pubFilter)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('videoDownload', 'Показывать ссылки для скачивания видео', settings.plugins.videoDownload)))
+			.append($('<div data-version="1.2"></div>').append(createCheckbox('videoAutoplay', 'Выключить автовоспроизведение следующего видео', settings.plugins.videoAutoplay)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('scrollTop', 'Добавить кнопку &laquo;наверх&raquo;', settings.plugins.scrollTop)))
 		)
 		.append($submit)
@@ -125,10 +137,13 @@ $.knb.fn.initSettings = function (settings, firstTime, updated) {
 	$settingsBtn = $('<a href="#">Настройки расширения</a>')
 		.attr('id', 'settings-btn')
 		.click(function(ev) {
+			$settings.find('> .controls')
+				.css('max-height', Math.max(100, Math.round($(window).height() - 400)) + 'px');
 			$settings
 				.css('left', Math.round(($(window).width() - $settings.width()) / 2) + 'px')
-				.css('top', '100px')
+				.css('top', '50px');
 			$('#settings-back').show();
+			
 			ev.preventDefault();
 			return false;
 		});

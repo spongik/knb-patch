@@ -45,6 +45,7 @@
 				"scripts/plugins/friends-highlight.js",
 				"scripts/plugins/like-button.js",
 				"scripts/plugins/video-download.js",
+				"scripts/plugins/video-autoplay.js",
 				"scripts/plugins/scroll-top.js",
 				"scripts/startup.js"
 			],

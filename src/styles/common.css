@@ -176,6 +176,7 @@
 #settings-panel .controls
 {
 	margin-bottom: 20px;
+	overflow-y: auto;
 }
 
 #settings-panel .controls > div
