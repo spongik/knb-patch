@@ -5,9 +5,3 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 		});
 	}
 });
-
-getStorageItem = function (item) {
-	chrome.storage.sync.get(item, function (it){
-		console.log(it[item]);
-	})
-}
