@@ -29,12 +29,30 @@ exec(function () {
 		
 		jQuery.ajaxSetup({
 			dataFilter: function(data, type) {
-				if (data.length > 0 && data[0] == '{') {
+				if (data.length == 0) {
+					return '';
+				}
+				
+				if (this.url.indexOf('/comments/list/') == 0) {
 					var json = $.parseJSON(data);
 					if (json.hasOwnProperty('list') && json.hasOwnProperty('more') && !json.more) {
 						json.more = '<a class="showMore showMoreFake" style="display: none;"><i></i><div class="wrapBtnTxt"></div><em></em></a>';
 					}
 					data = JSON.stringify(json);
+				} else if (this.url.indexOf('/mention/autocomplete/') == 0 && $('#mentionsSort').length != 0) {
+					var json = $.parseJSON(data);
+					var sorted = [];
+					for (item in json) {
+						if (json[item].type == 'user') {
+							sorted.push(json[item]);
+						}
+					}
+					for (item in json) {
+						if (json[item].type != 'user') {
+							sorted.push(json[item]);
+						}
+					}
+					data = JSON.stringify(sorted);
 				}
 				return data;
 			},

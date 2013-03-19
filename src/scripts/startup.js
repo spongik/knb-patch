@@ -5,7 +5,7 @@ $(function() {
 	
 	currentVersion = {
 		major: 1,
-		minor: 2
+		minor: 3
 	};
 	
 	firstTime = false;
@@ -28,6 +28,7 @@ $(function() {
 				videoDownload: true,
 				videoAutoplay: true,
 				scrollTop: true,
+				mentionsSort: true,
 			}
 		};
 		$.knb.fn.saveSettings(settings);
@@ -47,6 +48,13 @@ $(function() {
 		settings.version = { major: 1, minor: 2 };
 		
 		settings.plugins.videoAutoplay = true;
+	}
+	
+	if (settings.version.major == 1 && settings.version.minor == 2) {
+		updated = updated ? updated : settings.version;
+		settings.version = { major: 1, minor: 3 };
+		
+		settings.plugins.mentionsSort = true;
 	}
 	
 	if (updated) {
@@ -130,6 +138,7 @@ $.knb.fn.initSettings = function (settings, firstTime, updated) {
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('videoDownload', 'Показывать ссылки для скачивания видео', settings.plugins.videoDownload)))
 			.append($('<div data-version="1.2"></div>').append(createCheckbox('videoAutoplay', 'Выключить автовоспроизведение следующего видео', settings.plugins.videoAutoplay)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('scrollTop', 'Добавить кнопку &laquo;наверх&raquo;', settings.plugins.scrollTop)))
+			.append($('<div data-version="1.3"></div>').append(createCheckbox('mentionsSort', 'Показывать пользователей в начале списка при упоминании на @', settings.plugins.mentionsSort)))
 		)
 		.append($submit)
 		.append($cancel);
