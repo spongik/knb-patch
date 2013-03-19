@@ -1,10 +1,24 @@
-function exec(fn) {
+function exec(fn, params) {
 	var script = document.createElement('script');
 	script.setAttribute("type", "application/javascript");
-	script.textContent = '(' + fn + ')();';
+	script.textContent = '(' + fn + ')(' + JSON.stringify(params) + ');';
 	document.body.appendChild(script);
 	document.body.removeChild(script);
 }
+
+$.knb.fn.mentionInsert = function(name, id) {
+	exec(function (data) {
+		var $input = $('.writeComment textarea');
+		var mentions = $input.data('mentionsInput');
+		var val = mentions.val();
+		$input.focus();
+		mentions.set( val + (val.length > 0 ? ' ' : '') + '@[' + data.name + '](' + data.type + ':' + data.id + '), ' );
+	}, {
+		type: 'user',
+		name: name,
+		id: id
+	});
+};
 
 exec(function () {
 		

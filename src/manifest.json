@@ -48,6 +48,7 @@
 				"scripts/plugins/video-autoplay.js",
 				"scripts/plugins/scroll-top.js",
 				"scripts/plugins/mentions-sort.js",
+				"scripts/plugins/mentions-insert.js",
 				"scripts/startup.js"
 			],
 			"css": ["styles/common.css"]
