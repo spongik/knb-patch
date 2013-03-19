@@ -269,6 +269,10 @@
 	background-position: 8px -20px;
 }
 
+.header {
+	width: 1000px !important;
+}
+
 .headerIcons .header form {
 	margin-right: 20px !important;
 }
