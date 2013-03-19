@@ -62,7 +62,7 @@ $.knb.plugins.friendsHighlight.run = function () {
 			$(shout).parent().watch(function() {
 				friendsHighlight($('.shoutAnswers .ava[friend!=1]', $(this)).attr('friend', '1'), 'friendHighlight');
 				return true;
-			});
+			}).trigger('DOMSubtreeModified');
 		});
 		return true;
 	}).trigger('DOMSubtreeModified');
