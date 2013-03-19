@@ -8,7 +8,7 @@ function exec(fn, params) {
 
 $.knb.fn.mentionInsert = function(name, id) {
 	exec(function (data) {
-		var $input = $('.writeComment textarea');
+		var $input = $('.activeMentionsTextarea');
 		var mentions = $input.data('mentionsInput');
 		var val = mentions.val();
 		$input.focus();
