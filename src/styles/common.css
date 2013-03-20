@@ -405,5 +405,24 @@ ul.filter2 li.isSelected {
 	opacity: 0.6 !important;
 }
 
+
+
 /* Корректировка бага с неправильным z-index надписи "пост удален" */
 li.userMessageBlock.removeItem.deletedItem{z-index: 1 !important;}
+
+/* @ для ответа в воплях */
+.flow-reply{
+	color:#e2e2e2 !important;
+	-webkit-transition: All 0.6s;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	left: 12px;
+	position: relative;
+	top: -5px;
+	width: 25px;
+	display: inline-block;
+}
+.flow-reply:hover{color:#3B6D96 !important;}

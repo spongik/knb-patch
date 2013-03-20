@@ -30,5 +30,3 @@ popupMsg = function (head, message) {
 	};
 	note.show();
 };
-
-setInterval(update, INTERVAL);

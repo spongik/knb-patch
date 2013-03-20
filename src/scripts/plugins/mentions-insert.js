@@ -42,11 +42,15 @@ $.knb.plugins.mentionsInsert.run = function () {
 				.attr('mentions', '1')
 				.each(function (i, shout) {
 					$(shout).parent().watch(function() {
-						$('.shoutAnswers .ava[mentions!=1]', $(this))
+						$('.shoutTxt').css('padding-top','0px');
+						$(shout).find('.userName').css('left','70px')
+						$(shout).find('.shoutTxt').before('<a href="#" title="ответить" class="flow-reply">@</a>');
+						$('.shoutAnswers .shout[mentions!=1]', $(this))
 							.attr('mentions', '1')
-							.click(function (ev) {
-								$user = $(this);
-								
+							.find('.ava .userName').css('left','70px')
+							.parent().parent().find('.shoutTxt').before('<a href="#" title="ответить" class="flow-reply">@</a>')
+							.parent().find('.flow-reply').click(function (ev) {
+								$user = $(this).parent().find('.ava');								
 								name = $user.find('.userName').html();
 								id = $user.attr('href').replace('/accounts/', '').replace('/', '');
 								
