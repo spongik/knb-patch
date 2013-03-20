@@ -11,9 +11,10 @@ $.knb.plugins.mentionsInsert.run = function () {
 			$comments
 				.find('>[mentions!=1]')
 				.attr('mentions', '1')
-				.find('.userNamesBlock .userName, .userNamesBlock .whom')
+				.find('.userNamesBlock .userName').before('<a href="#" title="ответить" class="flow-reply comments">@</a>')
+				.parent().find('.flow-reply')
 				.click(function (ev) {
-					$user = $(this);
+					$user = $(this).parent().find('.userName');
 					
 					name = $user.html().replace(/<span>.+<\/span>/, '');
 					id = $user.attr('href').replace('/accounts/', '').replace('/', '');
@@ -43,8 +44,6 @@ $.knb.plugins.mentionsInsert.run = function () {
 				.each(function (i, shout) {
 					$(shout).parent().watch(function() {
 						$('.shoutTxt').css('padding-top','0px');
-						$(shout).find('.userName').css('left','70px')
-						$(shout).find('.shoutTxt').before('<a href="#" title="ответить" class="flow-reply">@</a>');
 						$('.shoutAnswers .shout[mentions!=1]', $(this))
 							.attr('mentions', '1')
 							.find('.ava .userName').css('left','70px')
@@ -65,10 +64,12 @@ $.knb.plugins.mentionsInsert.run = function () {
 							});
 						return true;
 					}).trigger('DOMSubtreeModified');
+					$(this).find('.userName').css('left','70px');
+					$(this).find('.shoutTxt').before('<a href="#" title="ответить" class="flow-reply">@</a>');
 				})
-				.find('>.ava')
+				.find('>.flow-reply')
 				.click(function (ev) {
-					$user = $(this);
+					$user = $(this).parent().find('.ava');
 					
 					name = $user.find('.userName').html();
 					id = $user.attr('href').replace('/accounts/', '').replace('/', '');

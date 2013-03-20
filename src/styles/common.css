@@ -425,4 +425,12 @@ li.userMessageBlock.removeItem.deletedItem{z-index: 1 !important;}
 	width: 25px;
 	display: inline-block;
 }
+
+.flow-reply.comments{
+	left: 0px !important;
+	top: -2px !important;
+	float: left;
+	width:22px !important;
+	margin-top:0px !important;
+}
 .flow-reply:hover{color:#3B6D96 !important;}
