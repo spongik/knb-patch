@@ -47,6 +47,7 @@ a {
 /* ЭЛЕМЕНТЫ */
 
 li {
+	 list-style: none;
     position: relative;
     font-size: 14px;
     border-bottom: 1px solid #f3f3f3;
