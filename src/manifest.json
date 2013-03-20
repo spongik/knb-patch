@@ -10,7 +10,7 @@
 		"48": "images/icons/icon48.png",
 		"128": "images/icons/icon128.png"
 	},
-	"version": "5.0.5.11",
+	"version": "5.0.5.12",
 	"permissions": [
 		"http://kanobu.ru/*",
 		"http://m.kanobu.ru/*",
@@ -22,7 +22,8 @@
 	],
 	"web_accessible_resources": [
 		"images/bg.jpg",
-		"images/epic.png"
+		"images/epic.png",
+		"images/icons/icon48.png"
 	],
 	"background": {
 		"page": "pages/background.html",

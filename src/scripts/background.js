@@ -12,19 +12,16 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 update = function () {
 	$.ajax({url: KANOBU_URL + NOTIFS_URL, async: true, success: function (data) {
-		var newCount = $(".new").length;
+		var newCount = $(".new", data).length;
 		if (newCount > 0) {
-			chrome.browserAction.setBadgeText({text: newCount.toString()});
-			popupMsg("Kanobu Flow", "Новые непрочитанные оповещения : "+newCount);
+			popupMsg("+"+newCount, "Новые оповещения");
 		}
-		else
-			chrome.browserAction.setBadgeText({text: ""});
 	}});
 }
 
 popupMsg = function (head, message) {
 	var note = webkitNotifications.createNotification(
-		"images/icons/icon48.png",
+		chrome.extension.getURL("images/icons/icon48.png"),
 		head,
 		message
 	);
