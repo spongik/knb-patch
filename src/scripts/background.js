@@ -13,8 +13,11 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 update = function () {
 	$.ajax({url: KANOBU_URL + NOTIFS_URL, async: true, success: function (data) {
 		var newCount = $(".new").length;
-		chrome.browserAction.setBadgeText({text: newCount});
+		if (newCount > 0)
+			chrome.browserAction.setBadgeText({text: newCount.toString()});
+		else
+			chrome.browserAction.setBadgeText({text: ""});
 	}});
 }
 
-setInterval(update, interval);
+setInterval(update, INTERVAL);
