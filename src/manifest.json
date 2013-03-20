@@ -2,11 +2,15 @@
 	"manifest_version": 2,
 	"name": "Kanobu Flow",
 	"description": "Расширение для сайта Kanobu.ru, призванное сделать работу с ним более удобной.",
+	"browser_action": {
+		"default_icon": "images/icons/icon48.png",
+		"default_popup": "pages/popup.html"
+	},
 	"icons": {
 		"48": "images/icons/icon48.png",
 		"128": "images/icons/icon128.png"
 	},
-	"version": "5.0.4.0",
+	"version": "5.0.5.11",
 	"permissions": [
 		"http://kanobu.ru/*",
 		"http://m.kanobu.ru/*",
@@ -21,7 +25,7 @@
 		"images/epic.png"
 	],
 	"background": {
-		"scripts": ["scripts/background.js"],
+		"page": "pages/background.html",
 		"persistent": false
 	},
 	"content_scripts": [
