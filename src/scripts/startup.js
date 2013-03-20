@@ -141,7 +141,7 @@ $.knb.fn.initSettings = function (settings, firstTime, updated) {
 			.append($('<div data-version="1.2"></div>').append(createCheckbox('videoAutoplay', 'Выключить автовоспроизведение следующего видео', settings.plugins.videoAutoplay)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('scrollTop', 'Добавить кнопку &laquo;наверх&raquo;', settings.plugins.scrollTop)))
 			.append($('<div data-version="1.3"></div>').append(createCheckbox('mentionsSort', 'Показывать пользователей в начале списка при упоминании на @', settings.plugins.mentionsSort)))
-			.append($('<div data-version="1.3"></div>').append(createCheckbox('mentionsInsert', 'Упоминание пользователей при нажатии на имя', settings.plugins.mentionsInsert)))
+			.append($('<div data-version="1.3"></div>').append(createCheckbox('mentionsInsert', 'Добавить кнопку для упоминания пользователя в ответе', settings.plugins.mentionsInsert)))
 		)
 		.append($submit)
 		.append($cancel);
