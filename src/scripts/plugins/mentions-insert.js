@@ -81,7 +81,6 @@ $.knb.plugins.mentionsInsert.run = function () {
 						$answers.find('.ava .userName').css('left','70px');
 						$answers.find('.shoutTxt')
 							.css('padding-top', '0px')
-							.css('margin-top', '-6px')
 							.before($replyBtn
 							.clone()
 							.addClass('flow-reply-shouts')
@@ -105,7 +104,6 @@ $.knb.plugins.mentionsInsert.run = function () {
 					$shout.find('.userName').css('left', '70px');
 					$shout.find('.shoutTxt')
 						.css('padding-top', '0px')
-						.css('margin-top', '-6px')
 						.before($replyBtn
 						.clone()
 						.addClass('flow-reply-shouts')
