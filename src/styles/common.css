@@ -411,26 +411,40 @@ ul.filter2 li.isSelected {
 li.userMessageBlock.removeItem.deletedItem{z-index: 1 !important;}
 
 /* @ для ответа в воплях */
-.flow-reply{
-	color:#e2e2e2 !important;
+.flow-reply {
+	color: #e2e2e2 !important;
 	-webkit-transition: All 0.6s;
 	font-family: 'PT Sans', sans-serif;
 	font-size: 15px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: bold;
-	left: 12px;
-	position: relative;
-	top: -5px;
-	width: 25px;
 	display: inline-block;
+	padding: 5px 5px 5px 0;
+	margin-top: -6px;
 }
 
-.flow-reply.comments{
-	left: 0px !important;
-	top: -2px !important;
+.flow-reply.flow-reply-comments {
 	float: left;
-	width:22px !important;
-	margin-top:0px !important;
 }
-.flow-reply:hover{color:#3B6D96 !important;}
+
+.flow-reply.flow-reply-comments-whom {
+	padding: 5px;
+}
+
+.flow-reply:hover {
+	color:#3B6D96 !important;
+}
+
+.flow-reply-shouts {
+	margin-left: 12px;
+	top: -10px;
+	margin-top: 0px;
+	margin-bottom: -6px;
+	position: relative;
+}
+
+.flow-reply-arrow {
+	float: left;
+	margin-left: 5px;
+}

@@ -18,7 +18,7 @@ $.knb.plugins.mentionsInsert.run = function () {
 				.find('.userNamesBlock .userName')
 				.before($replyBtn
 					.clone()
-					.addClass('comments')
+					.addClass('flow-reply-comments')
 					.click(function (ev) {
 						$user = $(this).parent().find('.userName');
 						
@@ -38,7 +38,8 @@ $.knb.plugins.mentionsInsert.run = function () {
 				.find('.userNamesBlock .whom')
 				.before($replyBtn
 					.clone()
-					.addClass('comments')
+					.addClass('flow-reply-comments')
+					.addClass('flow-reply-comments-whom')
 					.click(function (ev) {
 						$user = $(this).parent().find('.whom');
 						
@@ -57,6 +58,7 @@ $.knb.plugins.mentionsInsert.run = function () {
 				.find('span')
 				.each(function (i, span) {
 					$span = $(span);
+					$span.addClass('flow-reply-arrow')
 					$span.insertAfter($span.parent().parent().find('.userName'));
 				});
 		}
@@ -78,9 +80,11 @@ $.knb.plugins.mentionsInsert.run = function () {
 						$answers = $('.shoutAnswers .shout[mentions!=1]', $(this)).attr('mentions', '1');
 						$answers.find('.ava .userName').css('left','70px');
 						$answers.find('.shoutTxt')
-							.css('padding-top','0px')
+							.css('padding-top', '0px')
+							.css('margin-top', '-6px')
 							.before($replyBtn
 							.clone()
+							.addClass('flow-reply-shouts')
 							.click(function (ev) {
 								$user = $(this).parent().find('.ava');								
 								name = $user.find('.userName').html();
@@ -98,9 +102,13 @@ $.knb.plugins.mentionsInsert.run = function () {
 						return true;
 					}).trigger('DOMSubtreeModified');
 					
-					$shout.find('.userName').css('left','70px');
-					$shout.find('.shoutTxt').before($replyBtn
+					$shout.find('.userName').css('left', '70px');
+					$shout.find('.shoutTxt')
+						.css('padding-top', '0px')
+						.css('margin-top', '-6px')
+						.before($replyBtn
 						.clone()
+						.addClass('flow-reply-shouts')
 						.click(function (ev) {
 							$user = $(this).parent().find('.ava');
 							
