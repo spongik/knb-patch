@@ -66,7 +66,7 @@ $.knb.plugins.commentsRefresh.run = function () {
 		$.scrollTo( '#refresh-comments', 200 );
 		
 		$showMore.attr('data-url', refreshUrl);
-		$('#comments').css('min-height', $('#comments').height() + 'px');
+		$('#comments').css('min-height', $('#comments').outerHeight() + 'px');
 		$('#comments .comment').attr('old', '1').hide();
 		
 		var lastId = null;
