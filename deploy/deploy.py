@@ -27,13 +27,17 @@ for content_scripts_part in manifest['content_scripts']:
     merged_js_path = 'scripts/merged-' + str(++i) + '.js';
     with open(deploy_path + '/' + merged_js_path, encoding='utf-8', mode='w+') as merged_js:
         scripts = content_scripts_part['js']
+        content_scripts_part['js'] = []
         for script in scripts:
-            script_path = deploy_path + '/' + script;
-            merged_js.write(open(script_path, encoding='utf-8').read() + '\r\n\r\n')
-            os.unlink(script_path)
+            if not ('3rd-party' in script):
+                script_path = deploy_path + '/' + script;
+                merged_js.write(open(script_path, encoding='utf-8').read() + '\r\n')
+                os.unlink(script_path)
+            else:
+                content_scripts_part['js'].append(script)
         merged_js.close()
         merged_js_full_path = deploy_path + '/' + merged_js_path
-        content_scripts_part['js'] = [merged_js_path]
+        content_scripts_part['js'].append(merged_js_path)
 
 with open(deploy_path + '/manifest.json', encoding='utf-8', mode='w+') as manifest_merged:
     json.dump(manifest, manifest_merged)
