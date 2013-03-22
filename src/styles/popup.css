@@ -6,6 +6,7 @@
 }
 
 body {
+    font-size: 76%;
     width: 330px;
     height: 100px;
     background-color: #fff;
@@ -36,8 +37,8 @@ a {
 #menu {
     width: 100%;
     height: 18px;
-    background-color: #F7F9FF;
-    border-bottom: 1px solid #EEE;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
 }
 
 #content {
@@ -47,12 +48,12 @@ a {
 /* ЭЛЕМЕНТЫ */
 
 li {
-	 list-style: none;
+	list-style: none;
     position: relative;
-    font-size: 14px;
+    font-size: 13px;
     border-bottom: 1px solid #f3f3f3;
     padding: 6px;
-    color: #444;
+    background-color: #fafafa;
 }
 
 li a {
