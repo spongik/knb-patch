@@ -100,8 +100,10 @@ li:hover {
 }
 
 .notification > img {
-    float: left;
-    margin-right: 4px;
+   float: left;
+   margin-right: 4px;
+	width: 35px;
+	height: 35px;
 }
 
 .notification .history {
