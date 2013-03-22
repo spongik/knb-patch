@@ -10,7 +10,7 @@
 		"48": "images/icons/icon48.png",
 		"128": "images/icons/icon128.png"
 	},
-	"version": "5.0.5.15",
+	"version": "5.0.5.16",
 	"permissions": [
 		"http://kanobu.ru/*",
 		"http://m.kanobu.ru/*",
