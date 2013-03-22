@@ -45,6 +45,37 @@ a {
     
 }
 
+/* МЕНЮ */
+
+#notifs {
+	background-image: url(../images/icons/bell.png);
+}
+
+#msgs {
+	background-image: url(../images/icons/Email.png);
+}
+
+#help {
+	background-image: url(../images/icons/Life-ring.png);
+	float: right;
+}
+
+.menu-btn {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center center;
+	opacity: 0.4;
+}
+
+.menu-btn:hover {
+	opacity: 0.9;
+}
+
+.menu-btn.active {
+	opacity: 0.7;
+}
 /* ЭЛЕМЕНТЫ */
 
 li {
