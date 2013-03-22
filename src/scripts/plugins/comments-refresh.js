@@ -10,7 +10,7 @@ $.knb.fn.updateRefreshBtnLabel = function (newCommentsCount) {
 
 $.knb.fn.getRefreshCommentsUrl = function () {
 	data = $('.mainColumn script:last').html();
-	if (data) {
+	if (data && data.indexOf('object_id') > 0 && data.indexOf('content_type') > 0) {
 		objectId = /object_id: (\d+)/.exec(data)[1];
 		contentTypeId = /content_type: (\d+)/.exec(data)[1];
 		url = '/comments/list/' + contentTypeId + '/' + objectId + '/?max_id=9999999999&paginate_by=20';
