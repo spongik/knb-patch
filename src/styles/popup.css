@@ -78,6 +78,11 @@ a {
 }
 /* ЭЛЕМЕНТЫ */
 
+#loader {
+    margin: 30px auto;
+    display: block;
+}
+
 li {
 	list-style: none;
     position: relative;
