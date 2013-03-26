@@ -9,7 +9,7 @@ $.knb.fn.updateRefreshBtnLabel = function (newCommentsCount) {
 };
 
 $.knb.fn.getRefreshCommentsUrl = function () {
-	data = $('.mainColumn script:last').html();
+	data = $('.article script:last, .mainColumn script:last').last().html();
 	if (data && data.indexOf('object_id') > 0 && data.indexOf('content_type') > 0) {
 		objectId = /object_id: (\d+)/.exec(data)[1];
 		contentTypeId = /content_type: (\d+)/.exec(data)[1];
