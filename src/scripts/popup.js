@@ -1,5 +1,6 @@
 var KANOBU_URL = "http://kanobu.ru";
 var NOTIFS_URL = "/notifs";
+var SHOUTS_URL = "/shouts/refresh/";
 
 document.addEventListener('DOMContentLoaded', function () {
 	$("#notifs").click(function () {
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	$("#cries").click(function () {
 		setActive(this);
+		load(getCries);
 		return false;
 	});
 	load(getNotifs);
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 getNotifs = function () {
 	$.ajax({url: KANOBU_URL + NOTIFS_URL, async: true, success: function (data) {
-		$notifs = $("li:lt(10)", data);
+		var $notifs = $("li:lt(10)", data);
 		$("a", $notifs).each(function (index, link) {
 			$(link).click(function() {
 				chrome.tabs.create({url: link.href});
@@ -24,6 +26,12 @@ getNotifs = function () {
 			});
 		});
 		$("#content").html($notifs);
+	}});
+};
+
+getCries = function () {
+	$.ajax({url: KANOBU_URL + SHOUTS_URL, async: true, success: function (data) {
+		d = data;
 	}});
 };
 
