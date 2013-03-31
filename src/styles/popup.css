@@ -113,6 +113,8 @@ li:hover {
    margin-right: 4px;
 	width: 35px;
 	height: 35px;
+	border-radius: 50px;
+	border: 1px solid #DADADA;
 }
 
 .notification .history {
