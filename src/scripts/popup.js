@@ -3,12 +3,16 @@ var NOTIFS_URL = "/notifs";
 
 document.addEventListener('DOMContentLoaded', function () {
 	$("#notifs").click(function () {
+		setActive(this);
 		load(getNotifs);
 		return false;
 	});
+	$("#cries").click(function () {
+		setActive(this);
+		return false;
+	});
 	load(getNotifs);
-})
-
+});
 
 getNotifs = function () {
 	$.ajax({url: KANOBU_URL + NOTIFS_URL, async: true, success: function (data) {
@@ -29,4 +33,9 @@ load = function (method) {
 	img.id = 'loader';
 	$("#content").html(img);
 	method();
+};
+
+setActive = function (obj) {
+	$(".menu-btn").removeClass('active');
+	$(obj).addClass('active');
 };
