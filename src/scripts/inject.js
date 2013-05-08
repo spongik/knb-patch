@@ -12,7 +12,8 @@ $.knb.fn.mentionInsert = function(name, id) {
 		var mentions = $input.data('mentionsInput');
 		var val = mentions.val();
 		$input.focus();
-		mentions.set( val + (val.length > 0 ? ' ' : '') + '@[' + data.name + '](' + data.type + ':' + data.id + '), ' );
+		var newVal = val + (val.length > 0 ? ' ' : '') + '@[' + data.name + '](' + data.type + ':' + data.id + '), ';
+		$input.val( newVal );
 	}, {
 		type: 'user',
 		name: name,
