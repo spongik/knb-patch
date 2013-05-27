@@ -10,6 +10,7 @@
 	font-size: 15px !important;
 }
 
+
 .backgroundChanged .screenGlide
 {
 	min-height: 40px !important;
@@ -34,12 +35,27 @@
 	display:none !important;
 }
 
+.backgroundChanged .mainPage
+{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
 .backgroundChanged .container .wrapContent
 {
 	box-shadow: 0px 0px 30px rgba(0,0,0,0.5);
 	background: #fff !important;
 	padding-top: 10px !important;
 	min-height: 1000px;
+	width: 960px !important;
+	padding-left: 40px !important;
+	padding-right: 40px !important;
+	
+}
+
+.backgroundChanged .reviewHeader
+{
+	margin-bottom: 0px !important;
 }
 
 .backgroundChanged .container
@@ -80,11 +96,6 @@
 	margin-top: 20px !important;
 }
 
-.backgroundChanged .main .container .wrapContent
-{
-	padding-left: 20px !important;
-	padding-right: 20px !important;
-}
 
 /* Увеличен размер шрифта табов на главной */
 .backgroundChanged .matrix .tabs i,
