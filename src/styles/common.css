@@ -13,13 +13,18 @@
 .backgroundChanged .screenGlide
 {
 	min-height: 40px !important;
+	height: 0px !important;
+}
+
+.backgroundChanged .epicBtnContainer
+{
+	height: 0px !important;
 }
 
 .backgroundChanged .screenGlideContent
 {
 	background: #efefef;
 	background-attachment: fixed !important;
-	width: 100% !important;
 	height: 100% !important;
 	position: fixed !important;
 }
@@ -75,16 +80,10 @@
 	margin-top: 20px !important;
 }
 
-/* Фикс для кнопки канобу */
-.logoBtn:hover
-{ 
-	width: 79px !important;
-	z-index: 30 !important;
-}
-
-.logoBtn
+.backgroundChanged .main .container .wrapContent
 {
-	width:71px !important;	
+	padding-left: 20px !important;
+	padding-right: 20px !important;
 }
 
 /* Увеличен размер шрифта табов на главной */
