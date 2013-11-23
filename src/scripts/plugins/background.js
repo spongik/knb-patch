@@ -1,12 +1,19 @@
 $.knb.plugins.background = {};
 
-$.knb.plugins.background.async = false;
+$.knb.plugins.background.async = true;
 $.knb.plugins.background.run = function () {
 
 	$('body').addClass('backgroundChanged');
 	
 	$('.screenGlideContent')
-		.css('background-image', 'url("' + chrome.extension.getURL('images/bg.jpg') + '")')
-		.html('');
-
+		.css('background', 'url("' + chrome.extension.getURL('images/bg.jpg') + '")')
+		.find('a').remove();
+	$('.screenGlideContent').find('#header-flash').remove();
+	$(window).scroll(function(){
+		if($(window).scrollTop()>=400 || window.location.pathname!='/'){
+			$('.screenGlide').css('position','fixed').css('top','0px');
+		}else{
+			$('.screenGlide').css('position','absolute').css('top','440px');
+		}
+	});
 };
