@@ -10,7 +10,7 @@
 		"48": "images/icons/icon48.png",
 		"128": "images/icons/icon128.png"
 	},
-	"version": "5.0.6.1",
+	"version": "5.0.6.2",
 	"permissions": [
 		"http://kanobu.ru/*",
 		"notifications", 
@@ -21,8 +21,10 @@
 	],
 	"web_accessible_resources": [
 		"images/bg.jpg",
+		"images/bg-snow.png",
 		"images/epic.png",
-		"images/icons/icon48.png"
+		"images/icons/icon48.png",
+		"scripts/3rd-party/jquery.min.map"
 	],
 	"background": {
 		"page": "pages/background.html",

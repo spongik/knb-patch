@@ -6,7 +6,7 @@ $.knb.plugins.background.run = function () {
 	$('body').addClass('backgroundChanged');
 	
 	$('.screenGlideContent')
-		.css('background', 'url("' + chrome.extension.getURL('images/bg.jpg') + '")')
+		.css('background', 'url("' + chrome.extension.getURL('images/bg-snow.png') + '")')
 		.find('a').remove();
 	$('.screenGlideContent').find('#header-flash').remove();
 	$(window).scroll(function(){
