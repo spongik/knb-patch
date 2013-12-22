@@ -94,6 +94,20 @@
 	margin-top: 20px !important;
 }
 
+/* Правки фона для "полезных блоков" */
+.backgroundChanged .usefull-blocks>.box{
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    background: #f5f5f5;
+}
+
+.backgroundChanged .usefull-blocks>.box .box-header span {
+    border: 3px solid #e6e6e6;
+}
+
+/* Изменение цвета заголовка паба */
+.backgroundChanged .pub--main-header a{
+    color: #fcfcfc !important;
+}
 
 /* Увеличен размер шрифта табов на главной */
 .backgroundChanged .matrix .tabs i,
@@ -390,7 +404,8 @@ ul.filter2 li.isSelected {
 /* Кнопка "Вверх" */
 #scroll-top-btn,
 #scroll-video-btn,
-#scroll-article-btn {
+#scroll-article-btn,
+#scroll-pub-btn{
 	-webkit-transition: All 0.6s;
     width:80px;
     height:80px;
@@ -398,33 +413,36 @@ ul.filter2 li.isSelected {
     opacity: 0;
     position:fixed;
 	z-index:30;
-    bottom:80px;
+    bottom:113px;
     right:0px;
 	font: normal normal 13px/42px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
 	text-align:center;
     background:#efefef;
 }
 
-#scroll-video-btn,#scroll-article-btn{
+#scroll-video-btn,#scroll-article-btn, #scroll-pub-btn{
 	height:auto !important;
 	padding:10px !important;
-	bottom:47px !important;
+	bottom:80px !important;
 	line-height:13px !important;
 	opacity: 0.8 !important;
 }
 
-#scroll-video-btn:hover, #scroll-article-btn:hover{
+#scroll-video-btn:hover, #scroll-article-btn:hover, #scroll-pub-btn:hover{
 	opacity: 1 !important;
 }
 
 #scroll-article-btn{
-	bottom:14px !important;
+    bottom:47px !important;
+}
+
+#scroll-pub-btn{
+    bottom:14px !important;
 }
 
 #scroll-top-btn span{
 	font-size: 40px;
 	display: block;
-	
 }
 
 #scroll-top-btn:hover{
