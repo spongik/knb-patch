@@ -128,20 +128,20 @@ $.knb.fn.initSettings = function (settings, firstTime, updated) {
 		.attr('id', 'settings-panel')
 		.append($('<div class="controls"></div>')
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('background', 'Изменять фон', settings.plugins.background)))
-			.append($('<div data-version="1.0"></div>').append(createCheckbox('headerIcons', 'Кнопки в верхнем меню', settings.plugins.headerIcons)))
+			.append($('<div data-version="1.0"></div>').append(createCheckbox('headerIcons', '<s>Кнопки в верхнем меню</s> (в разработке)', settings.plugins.headerIcons)))
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('likeButton', 'Изменить стиль кнопки &laquo;Лайк&raquo;', settings.plugins.likeButton)))
-			.append($('<div data-version="1.0"></div>').append(createCheckbox('tabAll', 'Вкладка &laquo;Все&raquo; на главной', settings.plugins.tabAll)))
-			.append($('<div data-version="1.0"></div>').append(createCheckbox('friendsHighlight', 'Подсветка аватаров друзей <small>(необходимо перейти на страницу вашего профиля)</small>', settings.plugins.friendsHighlight)))
+			.append($('<div data-version="1.0"></div>').append(createCheckbox('tabAll', '<s>Вкладка &laquo;Все&raquo; на главной</s> (больше не актуально)', settings.plugins.tabAll)))
+			.append($('<div data-version="1.0"></div>').append(createCheckbox('friendsHighlight', '<s>Подсветка аватаров друзей</s> (в разработке)', settings.plugins.friendsHighlight)))
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsHighlight', 'Подсветка комментариев', settings.plugins.commentsHighlight)))
-			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsRefresh', 'Кнопка &laquo;Обновить комментарии&raquo;', settings.plugins.commentsRefresh)))
-			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsNotify', 'Показывать количество новых комментариев в иконке вкладки', settings.plugins.commentsNotify)))
+			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsRefresh', '<s>Кнопка &laquo;Обновить комментарии&raquo;</s> (в разработке)', settings.plugins.commentsRefresh)))
+			.append($('<div data-version="1.0"></div>').append(createCheckbox('commentsNotify', '<s>Показывать количество новых комментариев в иконке вкладки</s> (в разработке)', settings.plugins.commentsNotify)))
 			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubVideo', 'Открывать видео в Пабе в окне', settings.plugins.pubVideo)))
-			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubFilter', 'Фильтр постов в Пабе по количеству лайков <small>(экспериментальное)</small>', settings.plugins.pubFilter)))
+			.append($('<div data-version="1.0"></div>').append(createCheckbox('pubFilter', '<s>Фильтр постов в Пабе по количеству лайков <small>(экспериментальное)</small></s> (в разработке)', settings.plugins.pubFilter)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('videoDownload', 'Показывать ссылки для скачивания видео', settings.plugins.videoDownload)))
 			.append($('<div data-version="1.2"></div>').append(createCheckbox('videoAutoplay', 'Выключить автовоспроизведение следующего видео', settings.plugins.videoAutoplay)))
 			.append($('<div data-version="1.1"></div>').append(createCheckbox('scrollTop', 'Добавить кнопку &laquo;наверх&raquo;', settings.plugins.scrollTop)))
-			.append($('<div data-version="1.3"></div>').append(createCheckbox('mentionsSort', 'Показывать пользователей в начале списка при упоминании на @', settings.plugins.mentionsSort)))
-			.append($('<div data-version="1.3"></div>').append(createCheckbox('mentionsInsert', 'Добавить кнопку для упоминания пользователя в ответе', settings.plugins.mentionsInsert)))
+			.append($('<div data-version="1.3"></div>').append(createCheckbox('mentionsSort', '<s>Показывать пользователей в начале списка при упоминании на @</s> (больше не актуально)', settings.plugins.mentionsSort)))
+			.append($('<div data-version="1.3"></div>').append(createCheckbox('mentionsInsert', '<s>Добавить кнопку для упоминания пользователя в ответе</s> (в разработке)', settings.plugins.mentionsInsert)))
 		)
 		.append($submit)
 		.append($cancel);
@@ -153,7 +153,7 @@ $.knb.fn.initSettings = function (settings, firstTime, updated) {
 				.css('max-height', Math.max(100, Math.round($(window).height() - 400)) + 'px');
 			$settings
 				.css('left', Math.round(($(window).width() - $settings.width()) / 2) + 'px')
-				.css('top', '50px');
+				.css('top', '100px');
 			$('#settings-back').show();
 			
 			ev.preventDefault();
@@ -161,7 +161,7 @@ $.knb.fn.initSettings = function (settings, firstTime, updated) {
 		});
 
 	$('body').append($settingsBack.append($settings));
-	$('.profileInfo .nameMail').append($settingsBtn);
+	$('.profileControlLinks').append($settingsBtn).append('<div style="clear:both"></div>');
 
 	if (firstTime) {
 		$('<p>Благодарим вас за установку расширения Kanobu Flow!<br>\

@@ -43,9 +43,17 @@
 }
 
 /* Обновленная тень и фон */
+.page-feature-main{
+    background: #fff !important;
+}
+
 .b-page-content__body{
     box-shadow: 0 0 30px rgba(0,0,0,0.5) !important;
-    background: #fff !important;
+    background: none !important;
+}
+
+.page-feature-usefull{
+    background:none !important;
 }
 
 .backgroundChanged .reviewHeader
@@ -58,9 +66,9 @@
 }
 
 .backgroundChanged .page-feature-incut .page-feature-incut--content{
-	max-width:1920px;
+	/*max-width:1920px;*/
 	margin:0 auto;
-	box-shadow:0 0 10px rgba(0,0,0,0.8);
+	/*box-shadow:0 0 10px rgba(0,0,0,0.8);*/
 }
 
 .backgroundChanged .footer
@@ -94,6 +102,14 @@
 .backgroundChanged .tabs
  {
 	margin-top: 20px !important;
+}
+
+.box-header.pub--main-header{
+    margin:25px 0 25px 0;
+}
+
+.page-content{
+   background: none !important;
 }
 
 /* Правки фона для "полезных блоков" */
@@ -163,6 +179,10 @@
     border: 3px solid #c0392b !important;
 }
 
+.shouts.sideBar .shoutMessage.shoutWrite:before {
+    border-bottom:10px solid #E74C3C !important;
+}
+
 /* Разное */
 
 .friendHighlight2 img
@@ -228,7 +248,7 @@
 	height: 100%;
 	left: 0;
 	top: 0;
-	background: rgba(0,0,0,0.9);
+	background: rgba(0,0,0,0.2);
 	z-index: 99999;
 }
 
@@ -236,9 +256,9 @@
 {
 	position: fixed;
 	background: #fff;
-	border: 10px solid rgba(0,91,217,0.1);
-	padding: 20px;
-	width: 500px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+	padding: 40px;
+	width: 600px;
 }
 
 #settings-panel .controls
@@ -275,11 +295,16 @@
 
 #settings-btn
 {
+    display: block;
 	font: 13px/14px "PT Sans",helvetica,"segoe UI",arial,sans-serif;
 	margin-top: 4px;
 	float: left;
-	color: #3B6D96;
+	color: rgba(255,255,255,0.6);
 	border-bottom: 1px dotted #3B6D96;
+    transition:color 300ms ease;
+}
+#settings-btn:hover{
+    color: rgba(255,255,255,1);
 }
 
 #settings-cancel,
